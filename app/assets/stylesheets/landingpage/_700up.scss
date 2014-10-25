@@ -30,7 +30,7 @@ Content
 #cord:before{
   z-index: 20;
   position: absolute;
-  background: url('../img/cord.svg') 0 0 no-repeat scroll;
+  background: asset-url("cord.svg") 0 0 no-repeat scroll;
   -moz-animation: 3s ease 0s normal none infinite swing;
   -moz-transform-origin: center top;
   -webkit-animation:swing 3s infinite ease-in-out;
@@ -55,7 +55,7 @@ $degrees: 0.75deg;
   top: -20px;
   left: 20px;
   opacity: 0.04;
-  background: url('../img/cord-shadow.svg') 0 0 no-repeat scroll;
+  background: asset-url("cord-shadow.svg") 0 0 no-repeat scroll;
   -moz-animation: 3s ease 0s normal none infinite shadowSwing;
   -moz-transform-origin: center top;
   -webkit-animation:shadowSwing 3s infinite ease-in-out;
