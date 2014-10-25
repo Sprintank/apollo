@@ -15,6 +15,8 @@ gem 'jquery-rails', '~> 3.1.0'
 gem 'responders', '~> 1.0.0'
 gem 'slim-rails', '~> 2.1.4'
 
+gem 'paperclip', '~> 4.2'
+
 #authentication
 gem 'omniauth-soundcloud', '~> 1.0.1'
 
