@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   has_many :band_users
   has_many :bands, :through => :band_users
 
-
   def self.from_omniauth(auth)
     user = User.where(soundcloud_id: auth.uid.to_s).first_or_initialize
 
@@ -32,6 +31,12 @@ class User < ActiveRecord::Base
     tracks = client.get('/me/tracks', :limit => 1, :order => 'hotness')
     band.hottest_track_permalink = tracks.first.permalink_url unless tracks.count == 0
     band
+  end
+
+  # in-futre, there will be a switch that sets the
+  # default band.  for now, it's simple the first.
+  def default_band
+    bands.first
   end
 
   def grant_admin(band)
