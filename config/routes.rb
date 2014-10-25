@@ -16,6 +16,6 @@ Apollo::Application.routes.draw do
   resources :bands, only: [:show]
 
   namespace :admin do
-    get 'edit' => 'bands#edit'
+    root to: 'bands#edit'
   end
 end
