@@ -17,6 +17,8 @@ gem 'slim-rails', '~> 2.1.4'
 
 gem 'paperclip', '~> 4.2'
 
+gem 'google-analytics-rails', '~> 0.0.6'
+
 #authentication
 gem 'omniauth-soundcloud', '~> 1.0.1'
 
