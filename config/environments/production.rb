@@ -27,7 +27,7 @@ Apollo::Application.configure do
   config.assets.css_compressor = :sass
 
   config.assets.prefix = "/assets"
-  config.asset_host = "https://d20c4oxhzxmux.cloudfront.net"
+  config.asset_host = "http://d20c4oxhzxmux.cloudfront.net"
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
