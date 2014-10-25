@@ -4,14 +4,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:soundcloud]
 
-  has_one :band
+  has_many :band_users
+  has_many :bands, :through => :band_users
 
   def build_band
     band ||= Band.new(name: name)
     client = SoundCloud.new(:access_token => access_token)
     tracks = client.get('/me/tracks', :limit => 1, :order => 'hotness')
     band.hottest_track_permalink = tracks.first.permalink_url unless tracks.count == 0
-    band.save
+    band
   end
 
   def self.from_omniauth(auth)
@@ -21,9 +22,17 @@ class User < ActiveRecord::Base
     user.password = auth.credentials.token
     user.access_token = auth.credentials.token
     user.email = user.soundcloud_id + "@soundcloud.com"
-    user.build_band
+    user.grant_admin(user.build_band)
     user.save
     user
+  end
+
+  def grant_admin(band)
+    bands << band unless has_admin?(band)
+  end
+
+  def has_admin?(band)
+    band_users.exists?(:band_id => band.id)
   end
 
 end

@@ -2,9 +2,6 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
-  # test "the truth" do
-  #   assert true
-  # end
   describe "user creation" do
     context "from omniauth" do
       before :each do
@@ -22,6 +19,16 @@ class UserTest < ActiveSupport::TestCase
       it "creates a new user from omniauth hash" do
         assert @user.valid?
       end
+      it "is not able to access a band, without permissions" do
+        band = FactoryGirl.create(:band)
+        assert_equal false, @user.has_admin?(band)
+      end
+      it "is able to access a band, after admin is granted" do
+        band = FactoryGirl.create(:band)
+        @user.grant_admin(band)
+        assert_equal true, @user.has_admin?(band)
+      end
     end
   end
+
 end
