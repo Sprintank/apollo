@@ -18,6 +18,8 @@ gem 'slim-rails', '~> 2.1.4'
 #authentication
 gem 'omniauth-soundcloud', '~> 1.0.1'
 
+gem 'soundcloud', '~> 0.3.2'
+
 group :test, :development do
   gem 'factory_girl_rails'
   gem 'pry-rescue'

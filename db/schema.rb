@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025185829) do
+ActiveRecord::Schema.define(version: 20141025192821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +29,11 @@ ActiveRecord::Schema.define(version: 20141025185829) do
   create_table "bands", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "identifier",  null: false
+    t.string   "identifier",              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "soundcloud_id"
+    t.string   "hottest_track_permalink"
   end
 
   add_index "bands", ["identifier"], name: "index_bands_on_identifier", unique: true, using: :btree
@@ -52,6 +54,7 @@ ActiveRecord::Schema.define(version: 20141025185829) do
     t.string   "soundcloud_id"
     t.string   "username"
     t.string   "name"
+    t.string   "access_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
