@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :band do
     name "MyString"
-description "MyString"
+    description "MyString"
   end
-
 end
