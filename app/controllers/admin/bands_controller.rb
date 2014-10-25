@@ -1,3 +1,7 @@
-class Admin::BandsController < ApplicationController
-  # before_action :authenticate_member!
+class Admin::BandsController < Admin::BaseController
+
+  def edit
+
+  end
+
 end
