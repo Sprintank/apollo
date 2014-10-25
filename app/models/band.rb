@@ -3,8 +3,6 @@ class Band < ActiveRecord::Base
   validates :identifier, uniqueness: { case_sensitive: false }
   before_create :generate_unique_identifier
 
-  belongs_to :user
-
   private
 
   def generate_unique_identifier
