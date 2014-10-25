@@ -16,6 +16,7 @@ gem 'responders', '~> 1.0.0'
 gem 'slim-rails', '~> 2.1.4'
 
 gem 'paperclip', '~> 4.2'
+gem 'aws-sdk'
 
 gem 'google-analytics-rails', '~> 0.0.6'
 
