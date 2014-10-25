@@ -1,5 +1,8 @@
 class Band < ActiveRecord::Base
 
+  has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
+
   validates :identifier, uniqueness: { case_sensitive: false }
   before_create :generate_unique_identifier
 
