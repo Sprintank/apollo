@@ -1,0 +1,26 @@
+@import "landingpage/mixins";
+@import "variables";
+
+@import "base";
+
+@media only screen and (min-width: 375px) {
+
+  //iPhone 6 & big smartphones
+  @import "375up";
+
+}
+@media only screen and (min-width: 500px) {
+
+  @import "500up";
+
+}
+@media only screen and (min-width: 700px) {
+
+  @import "700up";
+
+}
+@media only screen and (min-width: 1281px) {
+
+  @import "1281up";
+
+}

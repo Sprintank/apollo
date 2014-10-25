@@ -1,0 +1,180 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: $mainFont;
+  background: #f8f8f8 url(../img/background.jpg) 0 0 repeat fixed;
+}
+body{
+  padding: 2em;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-weight: 300;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a{
+
+  color: $black;
+  text-decoration: none;
+  @include transition( opacity, 0.15s, ease-in-out );
+
+  &:hover{
+    text-decoration: underline;
+    opacity: 0.7;
+  }
+
+}
+
+ul, ol{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+button,
+.button{
+
+  border: solid 2px #000;
+  background: none;
+  display: inline-block;
+  color: #000;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: $mainFont;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  @include rounded(4px);
+
+  &:active{
+    top: 2px;
+  }
+
+}
+
+/*************************************
+Header
+*************************************/
+header{
+
+  margin: 0 0 2.5em 0;
+  position: relative;
+
+  &:after{
+    content:"";
+    display: table;
+    clear: both;
+  }
+
+}
+nav{
+
+  display: block;
+  float: right;
+
+  ul{
+
+    li{
+
+      display: inline-block;
+
+      &:first-child{ display: none; }
+
+      a{
+
+        text-decoration: none;
+
+        &:hover{
+          text-decoration: none;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+#logo{
+  display: block;
+  float: left;
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  @include transform( translateY(-50%) );
+}
+
+/*************************************
+Content
+*************************************/
+#content{
+  text-align: center;
+}
+
+span.tagline{
+  font-size: 2.5em;
+  display: block;
+  margin: 0 0 0.3em 0;
+}
+
+h1{
+  margin: 0;
+  font-size: 1.3em;
+  color: #aaaaaa;
+}
+
+button.soundcloud{
+
+  background: none;
+  color: $orange;
+  border-color: $orange;
+  font-size: 0.8rem;
+  outline: none;
+  margin: 4em 0;
+  @include rounded(4px);
+  @include transition( opacity, 0.15s, ease-in-out );
+
+  i{
+    font-size: 1.2rem;
+    position: relative;
+    top: 1px;
+    margin-right: 4px;
+  }
+
+  &:hover{
+    opacity: 0.7;
+  }
+
+}
+
+#cord{
+  display: none;
+}
+
+/*************************************
+Footer
+*************************************/
+footer{
+
+  margin: 0;
+  color: #aaa;
+
+  a{
+    color:#aaa;
+  }
+
+  p{
+    margin: 0;
+    padding: 0;
+  }
+
+}
