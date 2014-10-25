@@ -10,10 +10,21 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 20141025165208) do
+
+ActiveRecord::Schema.define(version: 20141025185829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "band_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "band_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "band_users", ["band_id"], name: "index_band_users_on_band_id", using: :btree
+  add_index "band_users", ["user_id"], name: "index_band_users_on_user_id", using: :btree
 
   create_table "bands", force: true do |t|
     t.string   "name"
