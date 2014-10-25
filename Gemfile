@@ -4,7 +4,7 @@ ruby '2.1.2'
 gem 'rails', '~> 4.1.6'
 gem 'pg', '~> 0.17.1'
 
-gem 'cancan', '~> 1.6.10'
+gem 'cancancan', '~> 1.9.2'
 gem 'devise', '~> 3.4.0'
 
 #front-end
