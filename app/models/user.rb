@@ -7,24 +7,31 @@ class User < ActiveRecord::Base
   has_many :band_users
   has_many :bands, :through => :band_users
 
-  def build_band
-    band ||= Band.new(name: name)
-    client = SoundCloud.new(:access_token => access_token)
-    tracks = client.get('/me/tracks', :limit => 1, :order => 'hotness')
-    band.hottest_track_permalink = tracks.first.permalink_url unless tracks.count == 0
-    band
-  end
 
   def self.from_omniauth(auth)
-    user = User.where(soundcloud_id: auth.uid.to_s).first_or_create
+    user = User.where(soundcloud_id: auth.uid.to_s).first_or_initialize
+
     user.username = auth.extra.raw_info.username
     user.name = auth.info.name
     user.password = auth.credentials.token
     user.access_token = auth.credentials.token
     user.email = user.soundcloud_id + "@soundcloud.com"
-    user.grant_admin(user.build_band)
+
+    if user.new_record?
+      band = user.build_initial_band
+      user.grant_admin(band)
+    end
+
     user.save
     user
+  end
+
+  def build_initial_band
+    band ||= Band.new(name: name)
+    client = SoundCloud.new(:access_token => access_token)
+    tracks = client.get('/me/tracks', :limit => 1, :order => 'hotness')
+    band.hottest_track_permalink = tracks.first.permalink_url unless tracks.count == 0
+    band
   end
 
   def grant_admin(band)
