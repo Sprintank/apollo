@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     user.password = auth.credentials.token
     user.access_token = auth.credentials.token
     user.email = user.soundcloud_id + "@soundcloud.com"
-    user.grant_admin(build_band)
+    user.grant_admin(user.build_band)
     user.save
     user
   end
