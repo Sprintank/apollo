@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     client = SoundCloud.new(:access_token => access_token)
     tracks = client.get('/me/tracks', :limit => 1, :order => 'hotness')
     band.hottest_track_permalink = tracks.first.permalink_url unless tracks.count == 0
-    band.save
+    band
   end
 
   def self.from_omniauth(auth)
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     user.password = auth.credentials.token
     user.access_token = auth.credentials.token
     user.email = user.soundcloud_id + "@soundcloud.com"
-    user.build_band
+    user.grant_admin(build_band)
     user.save
     user
   end
