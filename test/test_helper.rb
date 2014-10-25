@@ -5,6 +5,9 @@ require 'rails/test_help'
 require 'simplecov'
 SimpleCov.start 'rails'
 
+require "minitest/reporters"
+Minitest::Reporters.use! Minitest::Reporters::DefaultReporter.new
+
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 
