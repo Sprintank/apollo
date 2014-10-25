@@ -4,7 +4,7 @@ ruby '2.1.2'
 gem 'rails', '~> 4.1.6'
 gem 'pg', '~> 0.17.1'
 
-gem 'cancan', '~> 1.6.10'
+gem 'cancancan', '~> 1.9.2'
 gem 'devise', '~> 3.4.0'
 
 #front-end
@@ -15,15 +15,20 @@ gem 'jquery-rails', '~> 3.1.0'
 gem 'responders', '~> 1.0.0'
 gem 'slim-rails', '~> 2.1.4'
 
+#authentication
+gem 'omniauth-soundcloud', '~> 1.0.1'
+
 group :test, :development do
   gem 'factory_girl_rails'
   gem 'pry-rescue'
   gem 'simplecov', :require => false
   gem 'minitest-reporters'
   gem 'faker', '~> 1.4.2', require: false
+  gem 'minitest-spec-context'
 end
 
 group :development do
+  gem 'dotenv-rails', '~> 1.0.2'
   gem 'html2slim'
   gem 'thin'
   gem 'quiet_assets'
@@ -34,7 +39,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'spring'
   gem 'byebug'
-  # gem 'foreman'
+  gem 'foreman'
   # gem 'guard', :require => false
   # gem 'guard-livereload', :require => false
   # gem 'rack-livereload'
