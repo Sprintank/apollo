@@ -12,8 +12,12 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'autoprefixer-rails', '~>  2.1.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails', '~> 3.1.0'
+gem 'jquery-ui-rails', '~> 5.0.0'
 gem 'responders', '~> 1.0.0'
 gem 'slim-rails', '~> 2.1.4'
+gem 'jquery-minicolors-rails', '~> 2.1.4.0'
+gem "jquery-mousewheel-rails", '~> 0.0.9'
+gem 'jscrollpane-rails', '~> 2.0.20'
 
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk'
@@ -22,7 +26,6 @@ gem 'google-analytics-rails', '~> 0.0.6'
 
 #authentication
 gem 'omniauth-soundcloud', '~> 1.0.1'
-
 gem 'soundcloud', '~> 0.3.2'
 
 group :test, :development do

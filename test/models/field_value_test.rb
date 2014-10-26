@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PageStyleTest < ActiveSupport::TestCase
+class FieldValueTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
