@@ -24,7 +24,6 @@ gem 'google-analytics-rails', '~> 0.0.6'
 
 #authentication
 gem 'omniauth-soundcloud', '~> 1.0.1'
-
 gem 'soundcloud', '~> 0.3.2'
 
 group :test, :development do
