@@ -107,7 +107,7 @@
     </div><!-- end #sidebar -->
 
     <div id="topbar">
-      <a id="preview_url" href="#" target="_blank"><%= root_url + @band.identifier %></a>
+      <a id="preview_url" href="<%= band_url(@band.identifier) %>" target="_blank"><%= band_url(@band.identifier) %></a>
       <ul id="save_dialog">
         <li><button class="cancel">Cancel</button></li>
         <li><button class="save" onclick="$( '#band_admin_form' ).submit();">Save</button></li>
