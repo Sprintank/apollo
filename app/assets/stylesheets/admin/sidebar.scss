@@ -282,34 +282,50 @@ Logo
 /*************************************
 Social
 *************************************/
+.social_network{
+  margin: 0 0 1em 0;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
 //twitter
 #social_twitter{
   color: $twitter;
-  border-color: $twitter;
+  input{
+    border-color: $twitter;
+  }
 }
 
 //soundcloud
 #social_soundcloud{
   color: $soundcloud;
-  border-color: $soundcloud;
+  input{
+    border-color: $soundcloud;
+  }
 }
 
 //facebook
 #social_facebook{
   color: $facebook;
-  border-color: $facebook;
+  input{
+    border-color: $facebook;
+  }
 }
 
 //spotify
 #social_spotify{
   color: $spotify;
-  border-color: $spotify;
+  input{
+    border-color: $spotify;
+  }
 }
 
 //instagram
 #social_instagram{
   color: $instagram;
-  border-color: $instagram;
+  input{
+    border-color: $instagram;
+  }
 }
 
 /*************************************
