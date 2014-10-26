@@ -1,126 +1,114 @@
 <div id="app">
 
     <div id="sidebar">
-      <%= form_for @band, method: :put, url: admin_update_band_path, :html => { id: 'band_admin_form' } do |f| %>
-        <ul id="menu_sections">
+      <div id="sidebar_content">
+        <%= form_for @band, method: :put, url: admin_update_band_path, :html => { id: 'band_admin_form' } do |f| %>
+          <ul id="menu_sections">
 
-
-          <li id="menu-logo">
-            <button class="menu_section_label" type="button">Logo</button>
-
-            <div class="menu_section">
-              <div class="menu_group">
-                <label class="subsection_label">Text &amp; Font</label>
-                <input type="text" id="text_and_font" name="text_and_font" value="<%= @band.name %>" />
-              </div>
-              <div class="menu_group">
-                <label class="subsection_label">Upload</label>
-                <div class="btn_field upload_field">
-                  <span>Upload Logo</span>
-                  <i class="icon-plus"></i>
-                  <input type="file" class="upload" id="logo_upload" name="logo_upload" />
+            <li id="menu-logo">
+              <button class="menu_section_label" type="button">Logo</button>
+              <div class="menu_section">
+                <div class="menu_group">
+                  <label class="subsection_label">Text &amp; Font</label>
+                  <input type="text" id="text_and_font" name="text_and_font" value="<%= @band.name %>" />
                 </div>
-                <button>Delete Logo</button>
-              </div>
-            </div>
-
-          </li>
-
-
-          <li id="menu-social">
-            <button class="menu_section_label" type="button">Social</button>
-            <div class="menu_section">
-              <div class="menu_group">
-
-                <% FieldOption.social.each do |field_option| %>
-                  <div class="social_network" id="<%= field_option.identifier %>">
-                    <label class="subsection_label"><%= field_option.name %></label>
-                    <input type="text" name="band[field_option_values][<%= field_option.identifier %>]" value="<%= @band.field_values.find_by(:field_option => field_option).value %>" />
+                <div class="menu_group">
+                  <label class="subsection_label">Upload</label>
+                  <div class="btn_field upload_field">
+                    <span>Upload Logo</span>
+                    <i class="icon-plus"></i>
+                    <input type="file" class="upload" id="logo_upload" name="logo_upload" />
                   </div>
-                <% end %>
-
-              </div>
-            </div>
-          </li>
-
-
-          <li id="menu-music"><button class="menu_section_label" type="button">Music</button></li>
-
-
-          <li id="menu-style" class="active">
-            <button class="menu_section_label" type="button">Style</button>
-
-            <div class="menu_section">
-
-              <div class="menu_group">
-                <label class="subsection_label">Main</label>
-                <input type="text" class="colorPicker" id="main_color" name="main_color" value="" />
-                <select>
-                  <option>Montserrat</option>
-                  <option>Lato</option>
-                  <option>Droid Sans</option>
-                  <option>Need Moar!</option>
-                </select>
-              </div>
-
-              <div class="menu_group">
-                <label class="subsection_label">Text</label>
-                <input type="text" class="colorPicker" id="text_color" name="text_color" value="" />
-                <select>
-                  <option>Montserrat</option>
-                  <option>Lato</option>
-                  <option>Droid Sans</option>
-                  <option>Need Moar!</option>
-                </select>
-              </div>
-
-              <div class="menu_group">
-                <label class="subsection_label">Music Background</label>
-                <input type="text" class="colorPicker" id="music_background" name="music_background" value="" />
-              </div>
-
-              <div class="menu_group">
-                <label class="subsection_label">Background Image</label>
-                <div class="background_picker">
-                  <ul>
-                    <li><img src="<%= image_url("background_images/thumbs/01.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/02.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/03.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/04.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/05.jpg") %>" alt="" /></li>
-                    <li class="current"><img src="<%= image_url("background_images/thumbs/06.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/07.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/08.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/09.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/10.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/11.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/12.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/13.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/14.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/15.jpg") %>" alt="" /></li>
-                    <li><img src="<%= image_url("background_images/thumbs/16.jpg") %>" alt="" /></li>
-                  </ul>
-                </div>
-                <p class="credits">All photos courtesy of <a href="https://unsplash.com" target="_blank">Unsplash</a>.</p>
-              </div>
-
-              <div class="menu_group">
-                <label class="subsection_label">Background Overlay Color</label>
-                <input type="text" class="colorPicker" id="background_overlay_color" name="background_overlay_color" value="" placeholder="" />
-                <div class="slider_wrap no_top_border" id="background_opacity_slider">
-                  <div class="slider_value"></div>
-                  <div class="slider"><div class="sliderbar"></div></div>
+                  <button>Delete Logo</button>
                 </div>
               </div>
+            </li>
+            <li id="menu-social">
+              <button class="menu_section_label" type="button">Social</button>
+              <div class="menu_section">
+                <div class="menu_group">
+                  <% FieldOption.social.each do |field_option| %>
+                    <div class="social_network" id="<%= field_option.identifier %>">
+                      <label class="subsection_label"><%= field_option.name %></label>
+                      <input type="text" name="band[field_option_values][<%= field_option.identifier %>]" value="<%= @band.field_values.find_by(:field_option => field_option).value %>" />
+                    </div>
+                  <% end %>
+               </div>
+             </div>
+            </li>
 
-            </div>
+            <li id="menu-music"><button class="menu_section_label" type="button">Music</button></li>
 
-          </li>
+            <li id="menu-style">
+              <button class="menu_section_label" type="button">Style</button>
+              <div class="menu_section">
+                <div class="menu_group">
+                  <label class="subsection_label">Main</label>
+                  <input type="text" class="colorPicker" id="main_color" name="main_color" value="" />
+                  <select class="no_top_border">
+                    <option>Montserrat</option>
+                    <option>Lato</option>
+                    <option>Droid Sans</option>
+                    <option>Need Moar!</option>
+                  </select>
+                </div>
 
+                <div class="menu_group">
+                  <label class="subsection_label">Text</label>
+                  <input type="text" class="colorPicker" id="text_color" name="text_color" value="" />
+                  <select class="no_top_border">
+                    <option>Montserrat</option>
+                    <option>Lato</option>
+                    <option>Droid Sans</option>
+                    <option>Need Moar!</option>
+                  </select>
+                </div>
 
-        </ul>
-      <% end %>
-    </div>
+                <div class="menu_group">
+                  <label class="subsection_label">Music Background</label>
+                  <input type="text" class="colorPicker" id="music_background" name="music_background" value="" />
+                </div>
+
+                <div class="menu_group">
+                  <label class="subsection_label">Background Image</label>
+                  <div class="background_picker">
+                    <ul>
+                      <li><img src="<%= image_url("background_images/thumbs/01.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/02.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/03.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/04.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/05.jpg") %>" alt="" /></li>
+                      <li class="current"><img src="<%= image_url("background_images/thumbs/06.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/07.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/08.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/09.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/10.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/11.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/12.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/13.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/14.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/15.jpg") %>" alt="" /></li>
+                      <li><img src="<%= image_url("background_images/thumbs/16.jpg") %>" alt="" /></li>
+                    </ul>
+                  </div>
+                  <p class="credits">All photos courtesy of <a href="https://unsplash.com" target="_blank">Unsplash</a>.</p>
+                </div>
+
+                <div class="menu_group">
+                  <label class="subsection_label">Background Overlay Color</label>
+                  <input type="text" class="colorPicker" id="background_overlay_color" name="background_overlay_color" value="" placeholder="" />
+                  <div class="slider_wrap no_top_border" id="background_opacity_slider">
+                    <div class="slider_value"></div>
+                    <div class="slider"><div class="sliderbar"></div></div>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+          </ul>
+        <% end %>
+      </div><!-- end #sidebar_content -->
+    </div><!-- end #sidebar -->
 
     <div id="topbar">
       <a id="preview_url" href="#" target="_blank">apollomusic.com/username</a>

@@ -1,7 +1,33 @@
 /*
  *= require jquery.minicolors
  *= require jquery-ui/slider
+ *= require jscrollpane
 */
+/*************************************
+Sidebar Styles
+*************************************/
+//jscrollplane stuff
+#sidebar_content{
+  outline: none;
+}
+.jspVerticalBar{
+  width: 10px;
+  background: none;
+}
+.jspPane{
+  width: 260px !important;
+}
+.jspTrack,
+.jspDrag{
+  //@include rounded(5px);
+}
+.jspTrack{
+  background: darken($black, 10%);
+}
+.jspDrag{
+  background: $gray;
+}
+
 /*************************************
 Overall Form Elements
 *************************************/
@@ -17,7 +43,7 @@ ul#menu_sections{
   }
 
 }
-//.menu_section{ display: none; }
+.menu_section{ display: none; }
 
 .menu_section{
   padding-top: 1em;

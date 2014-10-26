@@ -55,10 +55,14 @@ Sidebar
   top: 0;
   left: 0;
   bottom: 0;
-  padding: 60px 40px 40px 40px;
+  padding: 60px 0px 0px 40px;
   width: $spacing;
   z-index: 2;
-  overflow-y: auto;
+  overflow: hidden;
+}
+#sidebar_content{
+  overflow: auto;
+  height: 100%;
 }
 
 /*************************************
