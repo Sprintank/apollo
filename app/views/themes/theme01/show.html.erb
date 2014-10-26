@@ -1,0 +1,55 @@
+<div id="site_wrap">
+	<div id="overlay_color"></div>
+	<div id="mobile_header">
+		<div id="mobile_menu_toggle">
+			<i class="icon-menu"></i>
+		</div>
+		<span id="mobile_site_title"><%= @band.name %></span>
+	</div>
+	<header id="main_header" class="site_header">
+		<div class="wrap">
+			<div id="logo_wrap">
+				<a href="/" id="logo">{{ if logo, add logo, else add text }}</a>
+			</div>
+			<nav id="header_nav" class="clearfix">
+				<ul id="social_links">
+					<li class="{{network class}}"><a href="{{network url}}" target="_blank"><i class="icon-twitter"></i></a></li>
+					<li class="{{network class}}"><a href="{{network url}}" target="_blank"><i class="icon-soundcloud"></i></a></li>
+					<li class="{{network class}}"><a href="{{network url}}" target="_blank"><i class="icon-facebook"></i></a></li>
+					<li class="{{network class}}"><a href="{{network url}}" target="_blank"><i class="icon-spotify"></i></a></li>
+					<li class="{{network class}}"><a href="{{network url}}" target="_blank"><i class="icon-instagram"></i></a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<div id="page_sections">
+		<div class="page_section music_section first">
+			<div class="wrap">
+				<div class="album clearfix">
+					<div class="soundcloud_embed">
+						{{iframe}}
+					</div>
+					<div class="album_info_wrapper">
+						<div class="album_info">
+							<span class="album_type">{{ album type }}</span>
+							<h3 class="album_title">{{ Album title }}</h3>
+							<div class="album_description">
+								<p>{{music description text}}</p>
+							</div>
+
+							<a href="#" class="album_button full" target="_blank">{{ Button Text }}</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="site_footer">
+		<div class="wrap">
+			<div class="credits">
+				<p>&copy; <%= Time.now.year %> <%= @band.name %> - All Rights Reserved</p>
+			</div>
+		</div>
+	</footer>
+</div><!-- / #site_wrap -->

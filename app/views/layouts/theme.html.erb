@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= @band.name %> | Apollo</title>
+  <link rel="icon" type="image/png" href="{{Favicon}}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- Social meta tags -->
+  <meta name="description" content="{{music description text}}" />
+  <meta property="og:title" content="{{website Title}}" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:description" content="{{music description text}}" />
+
+  <%= stylesheet_link_tag    "themes/theme01/main", media: "all" %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+  <!--[if lt IE 9]>
+    <div id="ie_upgrade_message">
+      <p>This website is not supported on your browser. It uses up-to-date technology that this version of Internet Exploer does not support.</p>
+      <p>Please <a href="http://browsehappy.com/">upgrade to a modern browser</a> for the best viewing experience possible.</p>
+    </div>
+  <![endif]-->
+
+  <%= yield %>
+
+  <%= javascript_include_tag "themes/theme01/theme01" %>
+
+</body>
+</html>
