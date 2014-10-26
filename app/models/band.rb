@@ -6,8 +6,14 @@ class Band < ActiveRecord::Base
   validates :identifier, uniqueness: { case_sensitive: false }
   before_create :generate_unique_identifier
 
+  has_many :page_styles
   has_many :social_connections
   belongs_to :user
+
+  def update_page_style(field_name, field_value)
+    page_style = page_styles.find_or_initialize_by(field_name: field_name)
+    page_style.update_attributes(field_value: field_value)
+  end
 
   def populate_social_connections
     unless soundcloud_id.nil?
@@ -33,6 +39,10 @@ class Band < ActiveRecord::Base
     end
 
     self.identifier = unique_identifier
+  end
+
+  def populate_default_page_styles
+    # TODO
   end
 
 end
