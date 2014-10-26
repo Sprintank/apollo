@@ -57,7 +57,7 @@
               <div class="menu_group">
                 <label class="subsection_label">Main</label>
                 <input type="text" class="colorPicker" id="main_color" name="main_color" value="" />
-                <select>
+                <select class="no_top_border">
                   <option>Montserrat</option>
                   <option>Lato</option>
                   <option>Droid Sans</option>
@@ -68,7 +68,7 @@
               <div class="menu_group">
                 <label class="subsection_label">Text</label>
                 <input type="text" class="colorPicker" id="text_color" name="text_color" value="" />
-                <select>
+                <select class="no_top_border">
                   <option>Montserrat</option>
                   <option>Lato</option>
                   <option>Droid Sans</option>
@@ -91,7 +91,10 @@
               <div class="menu_group">
                 <label class="subsection_label">Background Overlay Color</label>
                 <input type="text" class="colorPicker" id="background_overlay_color" name="background_overlay_color" value="" />
-                <div class="slider"></div>
+                <div class="slider_wrap no_top_border" id="background_opacity_slider">
+                  <div class="slider_value"></div>
+                  <div class="slider"><div class="sliderbar"></div></div>
+                </div>
               </div>
 
             </div>

@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/slider
 //= require jquery.minicolors
 //= require admin/jquery.customSelect
-//= require admin/jquery.nouislider
 //= require admin/admin

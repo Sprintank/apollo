@@ -26,14 +26,19 @@ jQuery(document).ready(function($) {
     position: 'bottom right'
   });
 
-  //noUISlider
-  $('.slider').noUiSlider({
-    start: [ 20, 30 ],
-    range: {
-      'min': 10,
-      'max': 40
+  //UI Slider
+  $('#background_opacity_slider .sliderbar').slider({
+    range: "min",
+    value: 37,
+    min: 0,
+    max: 100,
+    step: 1,
+    slide: function( event, ui ) {
+      $( "#background_opacity_slider .slider_value" ).text( ui.value ); //sets vaule on slide
     }
   });
+  //set initial value on load
+  $( "#background_opacity_slider .slider_value" ).text( $( "#background_opacity_slider .sliderbar" ).slider( "value" ) );
 
 
 });

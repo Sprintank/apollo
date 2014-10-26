@@ -1,5 +1,6 @@
 /*
  *= require jquery.minicolors
+ *= require jquery-ui/slider
 */
 /*************************************
 Overall Form Elements
@@ -29,7 +30,7 @@ div.menu_group{
 /*************************************
 Fields
 *************************************/
-input, button, textarea, .customSelect{
+input, button, textarea, .customSelect, .slider_value{
   font-family: $mainFont;
   font-size: 1.2rem;
   color: $white;
@@ -41,10 +42,18 @@ input, button, textarea, .customSelect{
 }
 
 input[type="text"],
-.customSelect{
+.customSelect,
+.slider_wrap{
+
   background: none;
   border: solid 2px $gray;
+
+  &.no_top_border{
+    border-top: none;
+  }
+
 }
+
 
 //customSelect jQuery
 select{
@@ -208,6 +217,27 @@ Color Picker
     left: auto;
     height: auto;
 
+  }
+
+}
+
+/*************************************
+Slider
+*************************************/
+.slider_wrap{
+
+  overflow: hidden;
+
+  .slider_value{
+    padding: 12px;
+    float: left;
+    width: 48px;
+    border-right: solid 2px $gray;
+  }
+  .slider{
+    float: left;
+    width: 192px;
+    padding: 17px 12px;
   }
 
 }
