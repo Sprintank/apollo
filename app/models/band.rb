@@ -6,15 +6,15 @@ class Band < ActiveRecord::Base
   validates :identifier, uniqueness: { case_sensitive: false }
   before_create :generate_unique_identifier
 
-  has_many :page_styles
-  has_many :social_connections
-  belongs_to :user
+  has_many :field_values
+  has_many :field_options, :through => :field_values
 
-  def update_page_style(field_name, field_value)
-    page_style = page_styles.find_or_initialize_by(field_name: field_name)
-    page_style.update_attributes(field_value: field_value)
+  def update_field_value(value, field_option)
+    field_value = field_values.find_or_initialize_by(field_option: field_option)
+    field_value.update_attributes(value: value)
   end
 
+  # TODO: refactor to use genercised field options / values
   def populate_social_connections
     unless soundcloud_id.nil?
       client = SoundCloud.new(:client_id => ENV['SOUNDCLOUD_CLIENT_ID'])

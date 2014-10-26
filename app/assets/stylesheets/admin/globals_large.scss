@@ -1,0 +1,25 @@
+$spacing: 420px;
+
+#sidebar{
+  width: $spacing;
+  padding: 80px 0 0 80px;
+}
+
+#topbar{
+  padding-left: $spacing;
+  height: 80px;
+}
+a#preview_url{
+  margin-top: 30px;
+}
+ul#save_dialog{
+  height: 80px;
+  button{
+    padding: 0 2em;
+  }
+}
+
+#website_frame{
+  left: $spacing;
+  top: 80px;
+}

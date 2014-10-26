@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SocialConnectionTest < ActiveSupport::TestCase
+class FieldOptionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

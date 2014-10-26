@@ -1,0 +1,397 @@
+/*
+ *= require jquery.minicolors
+ *= require jquery-ui/slider
+ *= require jscrollpane
+*/
+/*************************************
+Sidebar Styles
+*************************************/
+//jscrollplane stuff
+#sidebar_content{
+  outline: none;
+}
+.jspVerticalBar{
+  width: 10px;
+  background: none;
+}
+.jspPane{
+  width: 260px !important;
+}
+.jspTrack,
+.jspDrag{
+  //@include rounded(5px);
+}
+.jspTrack{
+  background: darken($black, 10%);
+}
+.jspDrag{
+  background: $gray;
+}
+
+/*************************************
+Overall Form Elements
+*************************************/
+form{
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+ul#menu_sections{
+
+  li{
+    margin: 0 0 3em 0;
+  }
+
+}
+.menu_section{ display: none; }
+
+.menu_section{
+  padding-top: 1em;
+}
+
+div.menu_group{
+  margin: 0 0 2em 0;
+}
+
+p.credits{
+  font-size: 12px;
+  margin: 0.6em 0;
+}
+
+/*************************************
+Fields
+*************************************/
+input, button, textarea, .customSelect, .slider_value{
+  font-family: $mainFont;
+  font-size: 1.2rem;
+  color: $white;
+  padding: 12px;
+  display: block;
+  width: 100%;
+  outline: none;
+  margin: 0;
+}
+
+input[type="text"],
+.customSelect,
+.slider_wrap{
+
+  background: none;
+  border: solid 2px $gray;
+
+  &.no_top_border{
+    border-top: none;
+  }
+
+}
+
+
+//customSelect jQuery
+select{
+  width: 100%;
+  cursor: pointer;
+}
+.customSelect{
+
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+
+  &:after{
+    content: "\e02c";
+    font-family: "apollo-fonts";
+    position: absolute;
+    display: block;
+    right: 12px;
+    top: 50%;
+    color: $gray;
+    @include transform(translateY(-50%));
+  }
+
+  &.customSelectHover:after{
+    color: $white;
+  }
+
+}
+select.hasCustomSelect{
+  z-index: 2;
+  width: 100%;
+}
+
+.menu_group{
+
+}
+
+/*************************************
+Buttons
+*************************************/
+button.menu_section_label{
+
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-family: $mainFont;
+  font-size: 1.4em;
+  font-weight: 200;
+  display: block;
+  width: 100%;
+  text-align: left;
+
+}
+
+//big buttons with icons
+//button fields
+.btn_field{
+
+  display: block;
+  background: #000000;
+  color: $white;
+  position: relative;
+  overflow: hidden;
+  //border: solid 2px #000000;
+  cursor: pointer;
+  margin: 0 0 4px 0;
+
+  > span{
+    display: inline-block;
+    padding: 16px;
+  }
+  > i{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: $gray;
+    width: 48px;
+    &:before{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      @include transform(translateX(-50%) translateY(-50%));
+    }
+  }
+  input.upload{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+
+}
+//upload fields
+.upload_field{
+  background: $green;
+  color: $white;
+  > i{
+    background: darken($green, 10%);
+  }
+}
+//delete field
+.delete_field{
+  background: $red;
+  color: $white;
+  > i{
+    background: darken($red, 10%);
+  }
+}
+
+/*************************************
+Labels
+*************************************/
+label.subsection_label{
+  display: block;
+  font-size: 0.85rem;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+}
+
+/*************************************
+Color Picker
+*************************************/
+.minicolors-theme-default{
+
+  &.minicolors{
+    display: block;
+    width: 100%;
+  }
+  //right side positioning
+  &.minicolors-position-right{
+    .minicolors-input{
+      padding: 12px 50px 12px 12px;
+    }
+    .minicolors-swatch{
+      right: 2px;
+      border: none;
+      border-left: solid 2px $gray;
+    }
+  }
+
+  .minicolors-input{
+    height: auto;
+    width: 100%;
+    display: block;
+  }
+
+  .minicolors-swatch{
+    top: 2px;
+    bottom: 2px;
+    width: 48px;
+    left: auto;
+    height: auto;
+
+  }
+
+}
+
+/*************************************
+Slider
+*************************************/
+.slider_wrap{
+
+  overflow: hidden;
+
+  .slider_value{
+    padding: 12px 2px;
+    float: left;
+    width: 48px;
+    border-right: solid 2px $gray;
+    text-align: center;
+  }
+  .slider{
+    float: left;
+    width: 192px;
+    padding: 23px 12px;
+  }
+
+}
+
+//custom UI themeing
+.ui-widget-content{
+  border: none;
+  color: $gray;
+}
+.ui-slider-horizontal{
+  height: 2px;
+  background: $gray;
+}
+.ui-slider-horizontal .ui-slider-handle{
+  top: -9px;
+}
+.ui-slider .ui-slider-handle{
+
+}
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default{
+  background: $gray;
+  border: solid 2px $black;
+  outline: none;
+  @include rounded(50%);
+  &:active{
+    background: lighten($gray, 10%);
+  }
+}
+
+/*************************************
+Logo
+*************************************/
+
+/*************************************
+Social
+*************************************/
+.social_network{
+  margin: 0 0 1em 0;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+//twitter
+#social_twitter{
+  color: $twitter;
+  input{
+    border-color: $twitter;
+  }
+}
+
+//soundcloud
+#social_soundcloud{
+  color: $soundcloud;
+  input{
+    border-color: $soundcloud;
+  }
+}
+
+//facebook
+#social_facebook{
+  color: $facebook;
+  input{
+    border-color: $facebook;
+  }
+}
+
+//spotify
+#social_spotify{
+  color: $spotify;
+  input{
+    border-color: $spotify;
+  }
+}
+
+//instagram
+#social_instagram{
+  color: $instagram;
+  input{
+    border-color: $instagram;
+  }
+}
+
+/*************************************
+Music
+*************************************/
+
+/*************************************
+Background Photos
+*************************************/
+.background_picker{
+
+  border: solid 1px $gray;
+  width: 100%;
+
+  ul{
+    display: block;
+    overflow: hidden;
+  }
+  li{
+    border: solid 1px $gray;
+    float: left;
+    width: 25%;
+    margin: 0 !important;
+    padding: 0;
+    opacity: 0.8;
+    cursor: pointer;
+    @include transition(opacity, 0.15s, ease-in-out);
+  }
+  img{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  li.current{
+    border-color: $white;
+  }
+  li.current,
+  li:hover{
+    opacity: 1;
+  }
+
+}

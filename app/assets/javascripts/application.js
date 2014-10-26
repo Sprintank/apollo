@@ -11,5 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require_tree .
+//= require jquery-ui/slider
+//= require jquery.minicolors
+//= require admin/jquery.customSelect
+//= require jquery.mousewheel
+//= require jquery.jscrollpane
+//= require admin/admin
