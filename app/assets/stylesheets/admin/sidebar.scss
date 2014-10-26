@@ -27,6 +27,11 @@ div.menu_group{
   margin: 0 0 2em 0;
 }
 
+p.credits{
+  font-size: 12px;
+  margin: 0.6em 0;
+}
+
 /*************************************
 Fields
 *************************************/
@@ -229,17 +234,45 @@ Slider
   overflow: hidden;
 
   .slider_value{
-    padding: 12px;
+    padding: 12px 2px;
     float: left;
     width: 48px;
     border-right: solid 2px $gray;
+    text-align: center;
   }
   .slider{
     float: left;
     width: 192px;
-    padding: 17px 12px;
+    padding: 23px 12px;
   }
 
+}
+
+//custom UI themeing
+.ui-widget-content{
+  border: none;
+  color: $gray;
+}
+.ui-slider-horizontal{
+  height: 2px;
+  background: $gray;
+}
+.ui-slider-horizontal .ui-slider-handle{
+  top: -9px;
+}
+.ui-slider .ui-slider-handle{
+
+}
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default{
+  background: $gray;
+  border: solid 2px $black;
+  outline: none;
+  @include rounded(50%);
+  &:active{
+    background: lighten($gray, 10%);
+  }
 }
 
 /*************************************
@@ -249,34 +282,50 @@ Logo
 /*************************************
 Social
 *************************************/
+.social_network{
+  margin: 0 0 1em 0;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
 //twitter
 #social_twitter{
   color: $twitter;
-  border-color: $twitter;
+  input{
+    border-color: $twitter;
+  }
 }
 
 //soundcloud
 #social_soundcloud{
   color: $soundcloud;
-  border-color: $soundcloud;
+  input{
+    border-color: $soundcloud;
+  }
 }
 
 //facebook
 #social_facebook{
   color: $facebook;
-  border-color: $facebook;
+  input{
+    border-color: $facebook;
+  }
 }
 
 //spotify
 #social_spotify{
   color: $spotify;
-  border-color: $spotify;
+  input{
+    border-color: $spotify;
+  }
 }
 
 //instagram
 #social_instagram{
   color: $instagram;
-  border-color: $instagram;
+  input{
+    border-color: $instagram;
+  }
 }
 
 /*************************************
@@ -284,5 +333,39 @@ Music
 *************************************/
 
 /*************************************
-Style
+Background Photos
 *************************************/
+.background_picker{
+
+  border: solid 1px $gray;
+  width: 100%;
+
+  ul{
+    display: block;
+    overflow: hidden;
+  }
+  li{
+    border: solid 1px $gray;
+    float: left;
+    width: 25%;
+    margin: 0 !important;
+    padding: 0;
+    opacity: 0.8;
+    cursor: pointer;
+    @include transition(opacity, 0.15s, ease-in-out);
+  }
+  img{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  li.current{
+    border-color: $white;
+  }
+  li.current,
+  li:hover{
+    opacity: 1;
+  }
+
+}

@@ -31,17 +31,26 @@
             <button class="menu_section_label" type="button">Social</button>
             <div class="menu_section">
               <div class="menu_group">
-                <label class="subsection_label">Twitter</label>
-                <input type="text" id="social_twitter" name="social_twitter" value="" />
-                <label class="subsection_label">Soundcloud</label>
-                <input type="hidden" name="band[social_connections][][service]" value="social_soundcloud" />
-                <input type="text" name="band[social_connections][][uri]" value="test.com" />
-                <label class="subsection_label">Facebook</label>
-                <input type="text" id="social_facebook" name="social_facebook" value="" />
-                <label class="subsection_label">Spotify</label>
-                <input type="text" id="social_spotify" name="social_spotify" value="" />
-                <label class="subsection_label">Instagram</label>
-                <input type="text" id="social_instagram" name="social_instagram" value="" />
+                <div class="social_network" id="social_twitter">
+                  <label class="subsection_label">Twitter</label>
+                  <input type="text" id="social_twitter_field" name="social_twitter_field" value="" />
+                </div>
+                <div class="social_network" id="social_soundcloud">
+                  <label class="subsection_label">Soundcloud</label>
+                  <input type="text" id="social_soundcloud_field" name="social_soundcloud_field" value="" />
+                </div>
+                <div class="social_network" id="social_facebook">
+                  <label class="subsection_label">Facebook</label>
+                  <input type="text" id="social_facebook_field" name="social_facebook_field" value="" />
+                </div>
+                <div class="social_network" id="social_spotify">
+                  <label class="subsection_label">Spotify</label>
+                  <input type="text" id="social_spotify_field" name="social_spotify_field" value="" />
+                </div>
+                <div class="social_network" id="social_instagram">
+                  <label class="subsection_label">Instagram</label>
+                  <input type="text" id="social_instagram_field" name="social_instagram_field" value="" />
+                </div>
               </div>
             </div>
           </li>
@@ -85,14 +94,40 @@
               <div class="menu_group">
                 <label class="subsection_label">Background Image</label>
                 <div class="background_picker">
-                  Background images will load here...
+                  <ul>
+                    <li><img src="<%= image_url("background_images/thumbs/01.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/02.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/03.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/04.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/05.jpg") %>" alt="" /></li>
+                    <li class="current"><img src="<%= image_url("background_images/thumbs/06.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/07.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/08.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/09.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/10.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/11.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/12.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/13.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/14.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/15.jpg") %>" alt="" /></li>
+                    <li><img src="<%= image_url("background_images/thumbs/16.jpg") %>" alt="" /></li>
+                  </ul>
                 </div>
+                <p class="credits">All photos courtesy of <a href="https://unsplash.com" target="_blank">Unsplash</a>.</p>
               </div>
 
               <div class="menu_group">
                 <label class="subsection_label">Background Overlay Color</label>
+<<<<<<< HEAD
                 <input type="text" class="colorPicker" id="background_overlay_color" name="background_overlay_color" value="" />
                 <div class="slider"></div>
+=======
+                <input type="text" class="colorPicker" id="background_overlay_color" name="background_overlay_color" value="" placeholder="" />
+                <div class="slider_wrap no_top_border" id="background_opacity_slider">
+                  <div class="slider_value"></div>
+                  <div class="slider"><div class="sliderbar"></div></div>
+                </div>
+>>>>>>> fe/admin
               </div>
 
             </div>
