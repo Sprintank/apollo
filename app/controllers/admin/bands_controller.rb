@@ -7,13 +7,14 @@ class Admin::BandsController < Admin::BaseController
   end
 
   def update
-    @band.update_attributes(band_params)
+    params.pry
+    # @band.update_attributes(band_params)
     redirect_to admin_edit_band_path
   end
 
   private
 
   def band_params
-    params.require(:band).permit(:name, :social_connections => [:uri, :service])
+    params.require(:band).permit(:name, :field_values => [ :field_option_id, :value ])
   end
 end
