@@ -66,6 +66,11 @@ Sidebar
   width: $spacing;
   z-index: 2;
 }
+form{
+  display: block;
+  margin: 0;
+  padding: 0;
+}
 ul#menu_sections{
 
   li{
@@ -85,7 +90,7 @@ button.menu_section_label{
   display: block;
   width: 100%;
   text-align: left;
-  @include transition(all, 0.15s, ease-in-out);
+  @include transition(color, 0.15s, ease-in-out);
 
 }
 
