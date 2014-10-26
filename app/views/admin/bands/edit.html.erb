@@ -56,7 +56,7 @@
 
               <div class="menu_group">
                 <label class="subsection_label">Main</label>
-                <input type="text" id="main_color" name="main_color" value="" />
+                <input type="text" class="colorPicker" id="main_color" name="main_color" value="" />
                 <select>
                   <option>Montserrat</option>
                   <option>Lato</option>
@@ -66,19 +66,33 @@
               </div>
 
               <div class="menu_group">
-                <label class="subsection_label">Colors</label>
-                <input type="text" class="colorPicker" />
+                <label class="subsection_label">Text</label>
+                <input type="text" class="colorPicker" id="text_color" name="text_color" value="" />
+                <select>
+                  <option>Montserrat</option>
+                  <option>Lato</option>
+                  <option>Droid Sans</option>
+                  <option>Need Moar!</option>
+                </select>
               </div>
 
-              <label class="subsection_label">Background Image</label>
-              <input type="file" name="pic" accept="image/*">
-              <button>Delete Logo</button>
-              <label class="subsection_label">Color &amp; Transparency</label>
+              <div class="menu_group">
+                <label class="subsection_label">Music Background</label>
+                <input type="text" class="colorPicker" id="music_background" name="music_background" value="" />
+              </div>
 
+              <div class="menu_group">
+                <label class="subsection_label">Background Image</label>
+                <div class="background_picker">
+                  Background images will load here...
+                </div>
+              </div>
 
-              <label class="subsection_label">Custom Logo</label>
-              <input type="file" name="pic" accept="image/*">
-              <button>Delete Logo</button>
+              <div class="menu_group">
+                <label class="subsection_label">Background Overlay Color</label>
+                <input type="text" class="colorPicker" id="background_overlay_color" name="background_overlay_color" value="" />
+                <div class="slider"></div>
+              </div>
 
             </div>
 

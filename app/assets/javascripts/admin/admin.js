@@ -1,7 +1,5 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-//= require jquery
-//= require jquery.minicolors
 jQuery(document).ready(function($) {
 
   //toggle menu states
@@ -27,5 +25,15 @@ jQuery(document).ready(function($) {
   $('input.colorPicker').minicolors({
     position: 'bottom right'
   });
+
+  //noUISlider
+  $('.slider').noUiSlider({
+    start: [ 20, 30 ],
+    range: {
+      'min': 10,
+      'max': 40
+    }
+  });
+
 
 });
