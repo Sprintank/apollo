@@ -1,3 +1,6 @@
+/*
+ *= require jquery.minicolors
+*/
 /*************************************
 Overall Form Elements
 *************************************/
@@ -13,7 +16,7 @@ ul#menu_sections{
   }
 
 }
-.menu_section{ display: none; }
+//.menu_section{ display: none; }
 
 .menu_section{
   padding-top: 1em;
@@ -22,11 +25,6 @@ ul#menu_sections{
 div.menu_group{
   margin: 0 0 2em 0;
 }
-
-
-
-
-
 
 /*************************************
 Fields
@@ -49,13 +47,18 @@ input[type="text"],
 }
 
 //customSelect jQuery
+select{
+  width: 100%;
+  cursor: pointer;
+}
 .customSelect{
 
   position: relative;
   z-index: 1;
+  cursor: pointer;
 
   &:after{
-    content: 'S';
+    content: "\e02c";
     font-family: "apollo-fonts";
     position: absolute;
     display: block;
@@ -63,6 +66,10 @@ input[type="text"],
     top: 50%;
     color: $gray;
     @include transform(translateY(-50%));
+  }
+
+  &.customSelectHover:after{
+    color: $white;
   }
 
 }
@@ -161,6 +168,44 @@ label.subsection_label{
   font-size: 0.85rem;
   margin: 0 0 6px 0;
   text-transform: uppercase;
+}
+
+/*************************************
+Color Picker
+*************************************/
+.minicolors-theme-default{
+
+  &.minicolors{
+    display: block;
+    width: 100%;
+  }
+  //right side positioning
+  &.minicolors-position-right{
+    .minicolors-input{
+      padding: 12px 50px 12px 12px;
+    }
+    .minicolors-swatch{
+      right: 2px;
+      border: none;
+      border-left: solid 2px $gray;
+    }
+  }
+
+  .minicolors-input{
+    height: auto;
+    width: 100%;
+    display: block;
+  }
+
+  .minicolors-swatch{
+    top: 2px;
+    bottom: 2px;
+    width: 48px;
+    left: auto;
+    height: auto;
+
+  }
+
 }
 
 /*************************************

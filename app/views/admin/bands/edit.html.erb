@@ -49,14 +49,25 @@
           <li id="menu-music"><button class="menu_section_label" type="button">Music</button></li>
 
 
-          <li id="menu-style">
+          <li id="menu-style" class="active">
             <button class="menu_section_label" type="button">Style</button>
 
             <div class="menu_section">
 
               <div class="menu_group">
                 <label class="subsection_label">Main</label>
-                <input type="text" id="" name="" value="" />
+                <input type="text" id="main_color" name="main_color" value="" />
+                <select>
+                  <option>Montserrat</option>
+                  <option>Lato</option>
+                  <option>Droid Sans</option>
+                  <option>Need Moar!</option>
+                </select>
+              </div>
+
+              <div class="menu_group">
+                <label class="subsection_label">Colors</label>
+                <input type="text" class="colorPicker" />
               </div>
 
               <label class="subsection_label">Background Image</label>
@@ -64,12 +75,7 @@
               <button>Delete Logo</button>
               <label class="subsection_label">Color &amp; Transparency</label>
 
-              <select>
-                <option>Montserrat</option>
-                <option>Lato</option>
-                <option>Droid Sans</option>
-                <option>Need Moar!</option>
-              </select>
+
               <label class="subsection_label">Custom Logo</label>
               <input type="file" name="pic" accept="image/*">
               <button>Delete Logo</button>

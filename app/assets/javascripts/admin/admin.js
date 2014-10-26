@@ -1,10 +1,11 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 //= require jquery
+//= require jquery.minicolors
 jQuery(document).ready(function($) {
 
   //toggle menu states
-  $("#menu_sections button.menu_section_label").on('click', function(){
+  /*$("#menu_sections button.menu_section_label").on('click', function(){
 
     if( $(this).parents('li').hasClass('active') ){
       //close it
@@ -17,9 +18,14 @@ jQuery(document).ready(function($) {
 
     //return false;
 
-  });
+  });*/
 
   //load up custom select fields
   $('select').customSelect();
+
+  //color pickers!
+  $('input.colorPicker').minicolors({
+    position: 'bottom right'
+  });
 
 });
