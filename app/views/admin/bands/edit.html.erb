@@ -3,8 +3,10 @@
     <div id="sidebar">
       <form>
         <ul id="menu_sections">
-          <li class="active">
+
+          <li id="menu-logo" class="active">
             <button class="menu_section_label">Logo</button>
+
             <div class="menu_section">
               <label>Text &amp; Font</label>
               <input type="text" id="menu_item_01" value="Name" />
@@ -18,10 +20,25 @@
               <input type="file" name="pic" accept="image/*">
               <button>Delete Logo</button>
             </div>
+
           </li>
-          <li><button class="menu_section_label">Style</button></li>
-          <li><button class="menu_section_label">Social</button></li>
-          <li><button class="menu_section_label">Music</button></li>
+
+          <li id="menu-social"><button class="menu_section_label">Social</button></li>
+
+          <li id="menu-music"><button class="menu_section_label">Music</button></li>
+
+          <li id="menu-style">
+            <button class="menu_section_label">Style</button>
+
+            <div class="menu_section">
+              <label>Background Image</label>
+              <input type="file" name="pic" accept="image/*">
+              <button>Delete Logo</button>
+              <label>Color &amp; Transparency</label>
+
+            </div>
+
+          </li>
         </ul>
       </form>
     </div>
