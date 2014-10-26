@@ -6,6 +6,7 @@ class Band < ActiveRecord::Base
   validates :identifier, uniqueness: { case_sensitive: false }
   before_create :generate_unique_identifier
 
+  has_many :page_styles
   has_many :social_connections
   belongs_to :user
 
@@ -33,6 +34,10 @@ class Band < ActiveRecord::Base
     end
 
     self.identifier = unique_identifier
+  end
+
+  def populate_default_page_styles
+    # TODO
   end
 
 end
