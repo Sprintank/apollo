@@ -31,26 +31,12 @@
             <button class="menu_section_label" type="button">Social</button>
             <div class="menu_section">
               <div class="menu_group">
-                <div class="social_network" id="social_twitter">
-                  <label class="subsection_label">Twitter</label>
-                  <input type="text" id="social_twitter_field" name="social_twitter_field" value="" />
-                </div>
-                <div class="social_network" id="social_soundcloud">
-                  <label class="subsection_label">Soundcloud</label>
-                  <input type="text" id="social_soundcloud_field" name="social_soundcloud_field" value="" />
-                </div>
-                <div class="social_network" id="social_facebook">
-                  <label class="subsection_label">Facebook</label>
-                  <input type="text" id="social_facebook_field" name="social_facebook_field" value="" />
-                </div>
-                <div class="social_network" id="social_spotify">
-                  <label class="subsection_label">Spotify</label>
-                  <input type="text" id="social_spotify_field" name="social_spotify_field" value="" />
-                </div>
-                <div class="social_network" id="social_instagram">
-                  <label class="subsection_label">Instagram</label>
-                  <input type="text" id="social_instagram_field" name="social_instagram_field" value="" />
-                </div>
+                <% FieldOption.social.each do |field_option| %>
+                  <div class="social_network" id="<% field_option.identifier %>">
+                    <label class="subsection_label"><% field_option.display_name %></label>
+                    <input type="text" id="<% field_option.identifier %>_field" name="<% field_option.identifier %>_field" value="" />
+                  </div>
+                <% end %>
               </div>
             </div>
           </li>

@@ -2,6 +2,7 @@ class CreateFieldOptions < ActiveRecord::Migration
   def change
     create_table :field_options do |t|
       t.string :name
+      t.string :identifier
       t.string :kind
       t.string :default
       t.integer :order

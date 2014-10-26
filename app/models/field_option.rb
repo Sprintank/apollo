@@ -10,4 +10,6 @@ class FieldOption < ActiveRecord::Base
            :background_image => 'bg-image'
          }
 
+  scope :social, -> { where(kind: FieldOption::KIND[:social]) }
+
 end

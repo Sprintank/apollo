@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20141026181924) do
 
   create_table "field_options", force: true do |t|
     t.string   "name"
+    t.string   "identifier"
     t.string   "kind"
     t.string   "default"
     t.integer  "order"
