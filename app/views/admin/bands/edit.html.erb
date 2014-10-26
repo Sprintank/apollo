@@ -6,41 +6,59 @@
 
 
           <li id="menu-logo">
-            <button class="menu_section_label">Logo</button>
+            <button class="menu_section_label" type="button">Logo</button>
 
             <div class="menu_section">
               <div class="menu_group">
                 <label class="subsection_label">Text &amp; Font</label>
-                <input type="text" id="menu_item_01" name="" value="<%= @band.name %>" />
+                <input type="text" id="text_and_font" name="text_and_font" value="<%= @band.name %>" />
               </div>
               <div class="menu_group">
                 <label class="subsection_label">Upload</label>
                 <div class="btn_field upload_field">
                   <span>Upload Logo</span>
                   <i class="icon-plus"></i>
-                  <input type="file" class="upload" />
+                  <input type="file" class="upload" id="logo_upload" name="logo_upload" />
                 </div>
-                <div class="btn_field delete_field">
-                  <span>Delete Logo</span>
-                  <i class="icon-cancel"></i>
-                  <input type="file" class="upload" />
-                </div>
+                <button>Delete Logo</button>
               </div>
             </div>
 
           </li>
 
 
-          <li id="menu-social"><button class="menu_section_label">Social</button></li>
+          <li id="menu-social">
+            <button class="menu_section_label" type="button">Social</button>
+            <div class="menu_section">
+              <div class="menu_group">
+                <label class="subsection_label">Twitter</label>
+                <input type="text" id="social_twitter" name="social_twitter" value="" />
+                <label class="subsection_label">Soundcloud</label>
+                <input type="text" id="social_soundcloud" name="social_soundcloud" value="" />
+                <label class="subsection_label">Facebook</label>
+                <input type="text" id="social_facebook" name="social_facebook" value="" />
+                <label class="subsection_label">Spotify</label>
+                <input type="text" id="social_spotify" name="social_spotify" value="" />
+                <label class="subsection_label">Instagram</label>
+                <input type="text" id="social_instagram" name="social_instagram" value="" />
+              </div>
+            </div>
+          </li>
 
 
-          <li id="menu-music"><button class="menu_section_label">Music</button></li>
+          <li id="menu-music"><button class="menu_section_label" type="button">Music</button></li>
 
 
           <li id="menu-style">
-            <button class="menu_section_label">Style</button>
+            <button class="menu_section_label" type="button">Style</button>
 
             <div class="menu_section">
+
+              <div class="menu_group">
+                <label class="subsection_label">Main</label>
+                <input type="text" id="" name="" value="" />
+              </div>
+
               <label class="subsection_label">Background Image</label>
               <input type="file" name="pic" accept="image/*">
               <button>Delete Logo</button>

@@ -15,6 +15,8 @@ jQuery(document).ready(function($) {
       $(this).parents('li').addClass('active');
     }
 
+    //return false;
+
   });
 
   //load up custom select fields
