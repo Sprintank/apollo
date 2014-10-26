@@ -1,3 +1,6 @@
+/*************************************
+Overall Form Elements
+*************************************/
 form{
   display: block;
   margin: 0;
@@ -10,24 +13,7 @@ ul#menu_sections{
   }
 
 }
-.menu_section{
-  display: none;
-}
-
-button.menu_section_label{
-
-  border: none;
-  background: none;
-  padding: 0;
-  margin: 0;
-  font-family: $mainFont;
-  font-size: 1.4em;
-  font-weight: 200;
-  display: block;
-  width: 100%;
-  text-align: left;
-
-}
+.menu_section{ display: none; }
 
 .menu_section{
   padding-top: 1em;
@@ -37,13 +23,14 @@ div.menu_group{
   margin: 0 0 2em 0;
 }
 
-label.subsection_label{
-  display: block;
-  font-size: 0.85rem;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-}
 
+
+
+
+
+/*************************************
+Fields
+*************************************/
 input, button, textarea, .customSelect{
   font-family: $mainFont;
   font-size: 1.2rem;
@@ -55,10 +42,13 @@ input, button, textarea, .customSelect{
   margin: 0;
 }
 
-select.hasCustomSelect{
-  z-index: 2;
-  width: 100%;
+input[type="text"],
+.customSelect{
+  background: none;
+  border: solid 2px $gray;
 }
+
+//customSelect jQuery
 .customSelect{
 
   position: relative;
@@ -76,7 +66,30 @@ select.hasCustomSelect{
   }
 
 }
+select.hasCustomSelect{
+  z-index: 2;
+  width: 100%;
+}
 
+/*************************************
+Buttons
+*************************************/
+button.menu_section_label{
+
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-family: $mainFont;
+  font-size: 1.4em;
+  font-weight: 200;
+  display: block;
+  width: 100%;
+  text-align: left;
+
+}
+
+//big buttons with icons
 //button fields
 .btn_field{
 
@@ -123,7 +136,6 @@ select.hasCustomSelect{
   }
 
 }
-
 //upload fields
 .upload_field{
   background: $green;
@@ -141,8 +153,57 @@ select.hasCustomSelect{
   }
 }
 
-input[type="text"],
-.customSelect{
-  background: none;
-  border: solid 2px $gray;
+/*************************************
+Labels
+*************************************/
+label.subsection_label{
+  display: block;
+  font-size: 0.85rem;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
 }
+
+/*************************************
+Logo
+*************************************/
+
+/*************************************
+Social
+*************************************/
+//twitter
+#social_twitter{
+  color: $twitter;
+  border-color: $twitter;
+}
+
+//soundcloud
+#social_soundcloud{
+  color: $soundcloud;
+  border-color: $soundcloud;
+}
+
+//facebook
+#social_facebook{
+  color: $facebook;
+  border-color: $facebook;
+}
+
+//spotify
+#social_spotify{
+  color: $spotify;
+  border-color: $spotify;
+}
+
+//instagram
+#social_instagram{
+  color: $instagram;
+  border-color: $instagram;
+}
+
+/*************************************
+Music
+*************************************/
+
+/*************************************
+Style
+*************************************/
