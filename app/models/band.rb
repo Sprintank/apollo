@@ -8,7 +8,6 @@ class Band < ActiveRecord::Base
 
   has_many :field_values
   has_many :field_options, :through => :field_values
-  accepts_nested_attributes_for :field_values
 
   def update_field_value(value, field_option)
     field_value = field_values.find_or_initialize_by(field_option: field_option)

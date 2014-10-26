@@ -35,8 +35,7 @@
                 <% FieldOption.social.each do |field_option| %>
                   <div class="social_network" id="<%= field_option.identifier %>">
                     <label class="subsection_label"><%= field_option.name %></label>
-
-                    <input type="text" name="band[field_value][<%= field_option.identifier %>]" value="<%= field_option.name.downcase %>" />
+                    <input type="text" name="band[field_option_values][<%= field_option.identifier %>]" value="<%= @band.field_values.find_by(:field_option => field_option).value %>" />
                   </div>
                 <% end %>
 

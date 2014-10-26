@@ -7,14 +7,18 @@ class Admin::BandsController < Admin::BaseController
   end
 
   def update
-    params.pry
-    # @band.update_attributes(band_params)
+    band_params[:field_option_values].each do |identifier,value|
+      @band.update_field_value(value, FieldOption.find_by(:identifier => identifier))
+    end
     redirect_to admin_edit_band_path
   end
 
   private
 
   def band_params
-    params.require(:band).permit(:name, :field_values => [ :field_option_id, :value ])
+    params.require(:band).permit(:name).tap do |whitelisted|
+      whitelisted[:field_option_values] = params[:band][:field_option_values]
+    end
   end
+
 end
