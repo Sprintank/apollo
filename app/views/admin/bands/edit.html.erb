@@ -27,11 +27,8 @@
               <button class="menu_section_label" type="button">Social</button>
               <div class="menu_section">
                 <div class="menu_group">
-                  <% FieldOption.social.each do |field_option| %>
-                    <div class="social_network" id="<%= field_option.identifier %>">
-                      <label class="subsection_label"><%= field_option.name %></label>
-                      <input type="text" name="band[field_option_values][<%= field_option.identifier %>]" value="<%= @band.field_values.find_by(:field_option => field_option).value %>" />
-                    </div>
+                  <% @social_field_options.each do |field_option| %>
+                    <%= render 'social_field', :field_option => field_option %>
                   <% end %>
                </div>
              </div>
@@ -43,8 +40,9 @@
               <button class="menu_section_label" type="button">Style</button>
               <div class="menu_section">
                 <div class="menu_group">
-                  <label class="subsection_label">Main</label>
-                  <input type="text" class="colorPicker" id="main_color" name="main_color" value="" />
+
+                  <%= render 'color_picker_field', :field_option => @main_color_field_option %>
+
                   <select class="no_top_border">
                     <option>Montserrat</option>
                     <option>Lato</option>
@@ -54,8 +52,7 @@
                 </div>
 
                 <div class="menu_group">
-                  <label class="subsection_label">Text</label>
-                  <input type="text" class="colorPicker" id="text_color" name="text_color" value="" />
+                  <%= render 'color_picker_field', :field_option => @text_color_field_option %>
                   <select class="no_top_border">
                     <option>Montserrat</option>
                     <option>Lato</option>
@@ -65,8 +62,7 @@
                 </div>
 
                 <div class="menu_group">
-                  <label class="subsection_label">Music Background</label>
-                  <input type="text" class="colorPicker" id="music_background" name="music_background" value="" />
+                  <%= render 'color_picker_field', :field_option => @music_background_color_field_option %>
                 </div>
 
                 <div class="menu_group">
@@ -95,8 +91,8 @@
                 </div>
 
                 <div class="menu_group">
-                  <label class="subsection_label">Background Overlay Color</label>
-                  <input type="text" class="colorPicker" id="background_overlay_color" name="background_overlay_color" value="" placeholder="" />
+                  <%= render 'color_picker_field', :field_option => @background_overlay_color_field_option %>
+
                   <div class="slider_wrap no_top_border" id="background_opacity_slider">
                     <div class="slider_value"></div>
                     <div class="slider"><div class="sliderbar"></div></div>

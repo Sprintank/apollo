@@ -1,0 +1,2 @@
+<label class="subsection_label"><%= field_option.name %></label>
+<input type="text" class="colorPicker" name="band[field_option_values][<%= field_option.identifier %>]" value="<%= @band.field_values.find_by(:field_option => field_option).try(:value) %>" />

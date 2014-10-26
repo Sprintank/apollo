@@ -1,6 +1,7 @@
 class Admin::BandsController < Admin::BaseController
 
   before_action :load_default_band
+  before_action :load_field_options, :only => :edit
   before_action :ensure_band_admin_or_redirect_user
 
   def edit
@@ -19,6 +20,14 @@ class Admin::BandsController < Admin::BaseController
     params.require(:band).permit(:name).tap do |whitelisted|
       whitelisted[:field_option_values] = params[:band][:field_option_values]
     end
+  end
+
+  def load_field_options
+    @main_color_field_option = FieldOption.find_by(:identifier => 'main_color')
+    @text_color_field_option = FieldOption.find_by(:identifier => 'text_color')
+    @music_background_color_field_option = FieldOption.find_by(:identifier => 'music_background_color')
+    @background_overlay_color_field_option = FieldOption.find_by(:identifier => 'background_overlay_color')
+    @social_field_options = FieldOption.social.all
   end
 
 end
