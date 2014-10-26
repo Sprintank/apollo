@@ -1,0 +1,82 @@
+/*************************************
+Header
+*************************************/
+header{
+  margin-bottom: 10em;
+}
+
+/*************************************
+Content
+*************************************/
+#cord{
+
+  display: block;
+  position: absolute;
+  top: -175px;
+  left: 50%;
+  @include transform( translateX(-50%) );
+
+  &:before,
+  &:after{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 380px;
+  }
+
+}
+
+//cord
+#cord:before{
+  z-index: 20;
+  position: absolute;
+  background: asset-url("cord.svg") 0 0 no-repeat scroll;
+  -moz-animation: 3s ease 0s normal none infinite swing;
+  -moz-transform-origin: center top;
+  -webkit-animation:swing 3s infinite ease-in-out;
+  -webkit-transform-origin:top;
+}
+$degrees: 0.75deg;
+@-moz-keyframes swing{
+    0%{-moz-transform:rotate(-$degrees)}
+    50%{-moz-transform:rotate($degrees)}
+    100%{-moz-transform:rotate(-$degrees)}
+}
+@-webkit-keyframes swing{
+    0%{-webkit-transform:rotate(-$degrees)}
+    50%{-webkit-transform:rotate($degrees)}
+    100%{-webkit-transform:rotate(-$degrees)}
+}
+
+//cord shadow
+#cord:after{
+  z-index: 10;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  opacity: 0.04;
+  background: asset-url("cord-shadow.svg") 0 0 no-repeat scroll;
+  -moz-animation: 3s ease 0s normal none infinite shadowSwing;
+  -moz-transform-origin: center top;
+  -webkit-animation:shadowSwing 3s infinite ease-in-out;
+  -webkit-transform-origin:top;
+}
+$degrees: 1deg;
+@-moz-keyframes shadowSwing{
+    0%{-moz-transform:rotate(-$degrees)}
+    50%{-moz-transform:rotate($degrees)}
+    100%{-moz-transform:rotate(-$degrees)}
+}
+@-webkit-keyframes shadowSwing{
+    0%{-webkit-transform:rotate(-$degrees)}
+    50%{-webkit-transform:rotate($degrees)}
+    100%{-webkit-transform:rotate(-$degrees)}
+}
+
+
+/*************************************
+Footer
+*************************************/
+footer{
+  text-align: right;
+}
