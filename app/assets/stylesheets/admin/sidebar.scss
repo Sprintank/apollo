@@ -1,0 +1,145 @@
+form{
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+ul#menu_sections{
+
+  li{
+    margin: 0 0 3em 0;
+  }
+
+}
+
+button.menu_section_label{
+
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-family: $mainFont;
+  font-size: 1.4em;
+  font-weight: 200;
+  display: block;
+  width: 100%;
+  text-align: left;
+
+}
+
+.menu_section{
+  padding-top: 1em;
+}
+
+div.menu_group{
+  margin: 0 0 2em 0;
+}
+
+label.subsection_label{
+  display: block;
+  font-size: 0.85rem;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+}
+
+input, button, textarea, .customSelect{
+  font-family: $mainFont;
+  font-size: 1.2rem;
+  color: $white;
+  padding: 12px;
+  display: block;
+  width: 100%;
+  outline: none;
+  margin: 0;
+}
+
+select.hasCustomSelect{
+  z-index: 2;
+  width: 100%;
+}
+.customSelect{
+
+  position: relative;
+  z-index: 1;
+
+  &:after{
+    content: 'S';
+    font-family: "apollo-fonts";
+    position: absolute;
+    display: block;
+    right: 12px;
+    top: 50%;
+    color: $gray;
+    @include transform(translateY(-50%));
+  }
+
+}
+
+//button fields
+.btn_field{
+
+  display: block;
+  background: #000000;
+  color: $white;
+  position: relative;
+  overflow: hidden;
+  //border: solid 2px #000000;
+  cursor: pointer;
+  margin: 0 0 4px 0;
+
+  > span{
+    display: inline-block;
+    padding: 16px;
+  }
+  > i{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: $gray;
+    width: 48px;
+    &:before{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      @include transform(translateX(-50%) translateY(-50%));
+    }
+  }
+  input.upload{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+
+}
+
+//upload fields
+.upload_field{
+  background: $green;
+  color: $white;
+  > i{
+    background: darken($green, 10%);
+  }
+}
+//delete field
+.delete_field{
+  background: $red;
+  color: $white;
+  > i{
+    background: darken($red, 10%);
+  }
+}
+
+input[type="text"],
+.customSelect{
+  background: none;
+  border: solid 2px $gray;
+}
