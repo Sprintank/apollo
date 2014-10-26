@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026011043) do
+ActiveRecord::Schema.define(version: 20141026181924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "band_styles", force: true do |t|
+    t.integer  "band_id"
+    t.string   "field_name"
+    t.string   "field_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "band_users", force: true do |t|
     t.integer  "user_id"
@@ -42,22 +50,24 @@ ActiveRecord::Schema.define(version: 20141026011043) do
 
   add_index "bands", ["identifier"], name: "index_bands_on_identifier", unique: true, using: :btree
 
-  create_table "page_styles", force: true do |t|
-    t.integer  "band_id",     null: false
-    t.string   "field_name",  null: false
-    t.string   "field_value", null: false
+  create_table "field_options", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "default"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "social_connections", force: true do |t|
-    t.string   "display_name"
-    t.string   "uri"
-    t.string   "service"
+  create_table "field_values", force: true do |t|
     t.integer  "band_id"
+    t.integer  "field_option_id"
+    t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "field_values", ["band_id"], name: "index_field_values_on_band_id", using: :btree
+  add_index "field_values", ["field_option_id"], name: "index_field_values_on_field_option_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

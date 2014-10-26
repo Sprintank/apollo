@@ -6,14 +6,16 @@ class BandTest < ActiveSupport::TestCase
     assert_equal 'explosions-in-the-sky', band.identifier
   end
 
-  test "update_page_style by field_name and field_key should add a new row it not exists, and update existing rows" do
+  test "update_field_value by field_name and field_key should add a new row it not exists, and update existing rows" do
     band = FactoryGirl.create(:band)
-    band.update_page_style('my_field', 'my_value')
-    assert_equal 1, band.page_styles.size
+    field_option = FactoryGirl.create(:field_option)
 
-    band.update_page_style('my_field', 'my_value2')
-    assert_equal 1, band.page_styles.size
+    band.update_field_value('my_value', field_option)
+    assert_equal 1, band.field_values.size
 
-    assert_equal 'my_value2', band.page_styles.find_by(:field_name => 'my_field').field_value
+    band.update_field_value('my_value2', field_option)
+    assert_equal 1, band.field_values.size
+
+    assert_equal 'my_value2', band.field_values.find_by(:field_option => field_option).value
   end
 end
