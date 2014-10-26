@@ -14,4 +14,6 @@
 //= require jquery-ui/slider
 //= require jquery.minicolors
 //= require admin/jquery.customSelect
+//= require jquery.mousewheel
+//= require jquery.jscrollpane
 //= require admin/admin
