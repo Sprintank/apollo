@@ -3,7 +3,7 @@
   <nav>
     <ul>
       <li><a href="#">Examples</a></li>
-      <li><a class="button" href="#">Log in</a></li>
+      <li><a class="button" href="<%= user_omniauth_authorize_path(:soundcloud) %>">Log in</a></li>
     </ul>
   </nav>
 </header>
@@ -12,6 +12,7 @@
 
   <span class="tagline">Plug you in.</span>
   <h1>Instant music websites via Soundcloud</h1>
+  <a href="<%= user_omniauth_authorize_path(:soundcloud) %>">
   <button class="soundcloud"><i class="fa fa-soundcloud"></i> Connect with SoundCloud</button>
 
 </div>
