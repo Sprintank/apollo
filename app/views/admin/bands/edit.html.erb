@@ -33,7 +33,7 @@
               <div class="menu_group">
                 <% FieldOption.social.each do |field_option| %>
                   <div class="social_network" id="<% field_option.identifier %>">
-                    <label class="subsection_label"><% field_option.display_name %></label>
+                    <label class="subsection_label"><% field_option.name %></label>
                     <input type="text" id="<% field_option.identifier %>_field" name="<% field_option.identifier %>_field" value="" />
                   </div>
                 <% end %>
@@ -104,16 +104,11 @@
 
               <div class="menu_group">
                 <label class="subsection_label">Background Overlay Color</label>
-<<<<<<< HEAD
-                <input type="text" class="colorPicker" id="background_overlay_color" name="background_overlay_color" value="" />
-                <div class="slider"></div>
-=======
                 <input type="text" class="colorPicker" id="background_overlay_color" name="background_overlay_color" value="" placeholder="" />
                 <div class="slider_wrap no_top_border" id="background_opacity_slider">
                   <div class="slider_value"></div>
                   <div class="slider"><div class="sliderbar"></div></div>
                 </div>
->>>>>>> fe/admin
               </div>
 
             </div>
