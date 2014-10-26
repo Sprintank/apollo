@@ -8,7 +8,9 @@ class Band < ActiveRecord::Base
 
   has_many :page_styles
   has_many :social_connections
-  belongs_to :user
+
+  accepts_nested_attributes_for :page_styles
+  accepts_nested_attributes_for :social_connections
 
   def update_page_style(field_name, field_value)
     page_style = page_styles.find_or_initialize_by(field_name: field_name)

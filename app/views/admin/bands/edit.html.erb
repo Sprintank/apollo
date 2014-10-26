@@ -1,7 +1,7 @@
 <div id="app">
 
     <div id="sidebar">
-      <form>
+      <%= form_for @band, method: :put, url: admin_update_band_path, :html => { id: 'band_admin_form' } do |f| %>
         <ul id="menu_sections">
 
 
@@ -34,7 +34,8 @@
                 <label class="subsection_label">Twitter</label>
                 <input type="text" id="social_twitter" name="social_twitter" value="" />
                 <label class="subsection_label">Soundcloud</label>
-                <input type="text" id="social_soundcloud" name="social_soundcloud" value="" />
+                <input type="hidden" name="band[social_connections][][service]" value="social_soundcloud" />
+                <input type="text" name="band[social_connections][][uri]" value="test.com" />
                 <label class="subsection_label">Facebook</label>
                 <input type="text" id="social_facebook" name="social_facebook" value="" />
                 <label class="subsection_label">Spotify</label>
@@ -57,7 +58,7 @@
               <div class="menu_group">
                 <label class="subsection_label">Main</label>
                 <input type="text" class="colorPicker" id="main_color" name="main_color" value="" />
-                <select class="no_top_border">
+                <select>
                   <option>Montserrat</option>
                   <option>Lato</option>
                   <option>Droid Sans</option>
@@ -68,7 +69,7 @@
               <div class="menu_group">
                 <label class="subsection_label">Text</label>
                 <input type="text" class="colorPicker" id="text_color" name="text_color" value="" />
-                <select class="no_top_border">
+                <select>
                   <option>Montserrat</option>
                   <option>Lato</option>
                   <option>Droid Sans</option>
@@ -91,10 +92,7 @@
               <div class="menu_group">
                 <label class="subsection_label">Background Overlay Color</label>
                 <input type="text" class="colorPicker" id="background_overlay_color" name="background_overlay_color" value="" />
-                <div class="slider_wrap no_top_border" id="background_opacity_slider">
-                  <div class="slider_value"></div>
-                  <div class="slider"><div class="sliderbar"></div></div>
-                </div>
+                <div class="slider"></div>
               </div>
 
             </div>
@@ -103,19 +101,19 @@
 
 
         </ul>
-      </form>
+      <% end %>
     </div>
 
     <div id="topbar">
       <a id="preview_url" href="#" target="_blank">apollomusic.com/username</a>
       <ul id="save_dialog">
         <li><button class="cancel">Cancel</button></li>
-        <li><button class="save">Save</button></li>
+        <li><button class="save" onclick="$( '#band_admin_form' ).submit();">Save</button></li>
       </ul>
     </div>
 
     <div id="website_frame">
-      <p>you are editing the band:  '<%= @band.name %>'</p>
+      <p>you are editing the band: '<%= @band.name %>'</p>
     </div>
 
   </div>
