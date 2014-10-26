@@ -5,6 +5,10 @@ class Admin::BaseController < ApplicationController
 
   private
 
+  def ensure_default_band
+    current_user.grant_admin(current_user.build_initial_band) if current_user.default_band.nil? #this feels ugly
+  end
+
   def load_default_band
     @band = current_user.default_band
   end
