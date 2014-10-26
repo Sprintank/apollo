@@ -1,6 +1,7 @@
 class FieldOption < ActiveRecord::Base
 
-  KIND = { :social => 'social',
+  KIND = {
+           :social => 'social',
            :text => 'text',
            :upload => 'upload',
            :color => 'color',
