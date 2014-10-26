@@ -15,7 +15,7 @@
   <style>
 
     a{
-      color: {dynamic_style};
+      color: { <%= @band.get_field_value_for_option(@main_color_field_option) %> };
     }
 
   </style>
