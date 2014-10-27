@@ -1,5 +1,6 @@
 class Admin::BandsController < Admin::BaseController
 
+  before_action :ensure_default_band
   before_action :load_default_band
   before_action :load_field_options, :only => :edit
   before_action :ensure_band_admin_or_redirect_user
