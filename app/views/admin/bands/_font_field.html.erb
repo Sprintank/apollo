@@ -1,8 +1,8 @@
+<% selected_font = @band.field_values.find_by(:field_option => field_option).try(:value) %>
+<% font_list = { monsterrat: 'Monsterrat',  lato: 'Lato', droid_sans: 'Droid Sans' } %>
 
 <select name="band[field_option_values][<%= field_option.identifier %>]"  class="no_top_border">
-  <option value='monsterrat'>Montserrat</option>
-  <option value='lato'>Lato</option>
-  <option value='droid_sans'>Droid Sans</option>
+  <% font_list.each do |font_id, display_name| %>
+    <option value='<%= font_id %>' <% if selected_font == font_id.to_s %> selected <% end %>><%= display_name %></option>
+  <% end %>
 </select>
-
-<!-- <input type="text" name="band[field_option_values][<%= field_option.identifier %>]" value="<%= @band.field_values.find_by(:field_option => field_option).try(:value) %>" /> -->
