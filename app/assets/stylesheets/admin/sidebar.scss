@@ -409,6 +409,9 @@ Music
     border: solid 2px $gray;
     border-top: none;
     z-index: 1;
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     &.active{
       display: block;
