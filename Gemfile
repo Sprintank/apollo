@@ -29,6 +29,7 @@ gem 'omniauth-soundcloud', '~> 1.0.1'
 gem 'soundcloud', '~> 0.3.2'
 
 group :test, :development do
+  gem 'figaro'
   gem 'factory_girl_rails'
   gem 'pry-rescue'
   gem 'simplecov', :require => false
