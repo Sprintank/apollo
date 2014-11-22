@@ -6,7 +6,8 @@ class FieldOption < ActiveRecord::Base
            :upload => 'upload',
            :color => 'color',
            :opactiy => 'opacity',
-           :font => 'font'
+           :font => 'font',
+           :image => 'image'
          }
 
   scope :social, -> { where(kind: FieldOption::KIND[:social]) }

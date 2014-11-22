@@ -26,6 +26,7 @@ class Admin::BandsController < Admin::BaseController
     @main_color_field_option = FieldOption.find_by(:identifier => 'main_color')
     @text_color_field_option = FieldOption.find_by(:identifier => 'text_color')
     @music_background_color_field_option = FieldOption.find_by(:identifier => 'music_background_color')
+    @background_image_field_option = FieldOption.find_by(:identifier => 'background_image')
     @background_overlay_color_field_option = FieldOption.find_by(:identifier => 'background_overlay_color')
     @social_field_options = FieldOption.social.all
   end
