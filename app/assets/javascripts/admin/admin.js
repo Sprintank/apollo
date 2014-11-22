@@ -1,5 +1,25 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+
+/*************************************
+Toggle sidebar states
+*************************************/
+
+/*************************************
+Toggle music selection tabs
+*************************************/
+(function($) {
+  $.fn.musicTabs = function() {
+
+
+
+  };
+})(jQuery);
+/*************************************
+Fire everything off
+*************************************/
+
+
 jQuery(document).ready(function($) {
 
   //custom scrollbars on sidebar
