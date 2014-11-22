@@ -440,4 +440,17 @@ User Panel
 
   }
 
+  &:after{
+    display: table;
+    content: '';
+    clear: both;
+  }
+
+  .left-align{
+    float: left;
+  }
+  .right-align{
+    float: right;
+  }
+
 }
