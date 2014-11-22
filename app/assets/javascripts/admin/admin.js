@@ -100,6 +100,17 @@ Choose background Image
 })(jQuery);
 
 /*************************************
+Load Tracks from soundcloud
+*************************************/
+(function($) {
+  $.fn.loadSoundCloudTracks = function() {
+
+      var trackContainer = $(this);
+
+  };
+})(jQuery);
+
+/*************************************
 Fire everything off
 *************************************/
 jQuery(document).ready(function($) {
