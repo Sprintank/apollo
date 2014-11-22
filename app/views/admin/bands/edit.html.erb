@@ -40,10 +40,10 @@
                 <div class="menu_group">
                   <div class="music_selector">
                     <ul class="tabs clearfix">
-                      <li class="active"><button type="button">Tracks</button></li>
-                      <li><button type="button">Sets</button></li>
+                      <li><button type="button" data-list-id="tracks">Tracks</button></li>
+                      <li><button type="button" data-list-id="sets">Sets</button></li>
                     </ul>
-                    <div id="list-tracks" class="music_list active">
+                    <div id="list-tracks" class="music_list" data-list-id="tracks">
                       <ul>
                         <!-- loop through results -->
                         <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
@@ -60,7 +60,7 @@
                         <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
                       </ul>
                     </div>
-                    <div id="list-sets" class="music_list">
+                    <div id="list-sets" class="music_list" data-list-id="sets">
                       <ul>
                         <!-- loop through results -->
                         <li><button><span>Set Name</span><i class="icon-plus"></i></button></li>
