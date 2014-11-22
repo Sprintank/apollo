@@ -75,11 +75,13 @@ input, button, textarea, .customSelect, .slider_value{
   width: 100%;
   outline: none;
   margin: 0;
+  background: none;
 }
 
 input[type="text"],
 .customSelect,
-.slider_wrap{
+.slider_wrap,
+textarea{
 
   background: none;
   border: solid 2px $gray;
@@ -367,6 +369,118 @@ Social
 /*************************************
 Music
 *************************************/
+.music_selector{
+
+  position: relative;
+
+  ul.tabs{
+
+    display: block;
+    position: relative;
+    z-index: 10;
+
+    li{
+
+      display: block;
+      float: left;
+      width: 50%;
+      border-bottom: solid 2px $gray;
+      margin: 0 !important;
+
+      &.active{
+        border-bottom: none;
+        border-left: solid 2px $gray;
+        border-top: solid 2px $gray;
+        border-right: solid 2px $gray;
+      }
+
+    }
+    button{
+      margin: 0;
+    }
+
+  }
+
+  div.music_list{
+
+    display: none;
+    background: $black;
+    padding: 24px 12px 12px 12px;
+    border: solid 2px $gray;
+    border-top: none;
+    z-index: 1;
+
+    &.active{
+      display: block;
+    }
+
+    ul{
+
+    }
+    li{
+
+      margin: 0 !important;
+      display: block;
+      border-bottom: solid 1px lighten($black, 5%);
+
+      &:last-child{
+        border: none;
+      }
+
+      &.active{
+        background: #222;
+      }
+
+    }
+    button{
+
+      display: block;
+      width: 100%;
+      height: auto;
+      padding: 8px;
+      margin: 0;
+      position: relative;
+      font-size: 0.95em;
+
+      &:after{
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      &:hover i{
+        background: #7c7c7c;
+      }
+
+    }
+    span{
+      display: inline-block;
+      float: left;
+    }
+    i{
+      color: $black;
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      background: $gray;
+      color: $black;
+      width: 16px;
+      height: 16px;
+      @include transform(translateY(-50%));
+      @include rounded(50%);
+    }
+
+  }
+
+  #list-tracks{
+
+  }
+
+  #list-sets{
+
+  }
+
+}
 
 /*************************************
 Background Photos
