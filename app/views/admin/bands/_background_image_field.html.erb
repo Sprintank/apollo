@@ -2,13 +2,10 @@
 <div class="background_picker">
   <ul>
     <% (1..16).each do |img_num| %>
-      <li><img src="<%= image_url("background_images/thumbs/#{"%.2d" % img_num}.jpg") %>" alt="" /></li>
+      <li id="#{img_num}"><img src="<%= image_url("background_images/thumbs/#{"%.2d" % img_num}.jpg") %>" alt="" /></li>
       <!-- <li class="current"> -->
     <% end %>
-
   </ul>
-
   <input type="hidden" name="band[field_option_values][<%= field_option.identifier %>]" value="<%= @band.field_values.find_by(:field_option => field_option).try(:value) %>" />
-
 </div>
 <p class="credits">All photos courtesy of <a href="https://unsplash.com" target="_blank">Unsplash</a>.</p>
