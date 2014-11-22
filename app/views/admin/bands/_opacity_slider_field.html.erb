@@ -1,0 +1,7 @@
+<div class="slider_wrap no_top_border" id="background_opacity_slider">
+  <div class="slider_value"></div>
+
+  <div class="slider"><div class="sliderbar"></div></div>
+
+  <input type="hidden" name="band[field_option_values][<%= field_option.identifier %>]" value="<%= @band.field_values.find_by(:field_option => field_option).try(:value) %>" />
+</div>
