@@ -10,6 +10,9 @@
 
 <%= yield %>
 
+<script type="text/javascript">
+  var sound_cloud_access_token = '<%= current_user.access_token %>';
+</script>
 <%= javascript_include_tag "application" %>
 
 </body>
