@@ -18,6 +18,7 @@ gem 'slim-rails', '~> 2.1.4'
 gem 'jquery-minicolors-rails', '~> 2.1.4.0'
 gem "jquery-mousewheel-rails", '~> 0.0.9'
 gem 'jscrollpane-rails', '~> 2.0.20'
+gem 'jquery-cookie-rails', '~> 1.3.1.1'
 
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk'

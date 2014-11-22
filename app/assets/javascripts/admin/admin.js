@@ -154,3 +154,12 @@ jQuery(document).ready(function($) {
   $('.background_picker').backgroundImageSelect();
 
 });
+
+/*************************************
+Remember menu states
+*************************************/
+jQuery(document).ready(function($) {
+
+  //TBC
+
+});
