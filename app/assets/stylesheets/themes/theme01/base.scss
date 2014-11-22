@@ -29,7 +29,6 @@ h1, h2, h3, h4, h5, h6{
 	//min-height: 100%;
 	//width: 100%;
 	position: relative;
-	background-image: image-url("background_images/01.jpg");
 	@include box-shadow( 0, 0, 40px, 0.5 );
 
 	#overlay_color{

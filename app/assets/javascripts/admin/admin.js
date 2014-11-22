@@ -79,22 +79,22 @@ Choose background Image
 (function($) {
   $.fn.backgroundImageSelect = function() {
 
-      var imageContainer = $(this);
+    var imageContainer = $(this);
 
-      $(imageContainer).find('li').on('click', function(){
+    $(imageContainer).find('li').on('click', function(){
 
-        //get selected image ID
-        var imageID = $(this).attr('id');
-        imageID = imageID.replace('image-', '');
+      //get selected image ID
+      var imageID = $(this).attr('id');
+      imageID = imageID.replace('image-', '');
 
-        //set value of new ID
-        $('input[name="band[field_option_values][background_image]"]').val(imageID);
+      //set value of new ID
+      $('input[name="band[field_option_values][background_image]"]').val(imageID);
 
-        //set current class
-        $(imageContainer).find('li').removeClass('current');
-        $(this).addClass('current');
+      //set current class
+      $(imageContainer).find('li').removeClass('current');
+      $(this).addClass('current');
 
-      });
+    });
 
   };
 })(jQuery);
@@ -146,20 +146,22 @@ jQuery(document).ready(function($) {
   });
 
   //UI Slider
+  var initialSliderVal = $('input[name="band[field_option_values][background_overlay_opacity]"]').val();
   $('#background_opacity_slider .sliderbar').slider({
     range: "min",
-    value: 37,
+    value: initialSliderVal,
     min: 0,
     max: 100,
     step: 1,
     slide: function( event, ui ) {
-      $( "#background_opacity_slider .slider_value" ).text( ui.value ); //sets vaule on slide
+      $( "#background_opacity_slider .slider_value" ).text( ui.value ); //sets value on slide
+      $('input[name="band[field_option_values][background_overlay_opacity]"]').val( ui.value ); //sets value inside hidden input
     }
   });
   //set initial value on load
   $( "#background_opacity_slider .slider_value" ).text( $( "#background_opacity_slider .sliderbar" ).slider( "value" ) );
 
-  //backgorund image selection
+  //background image selection
   $('.background_picker').backgroundImageSelect();
 
 });
