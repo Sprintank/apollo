@@ -7,8 +7,6 @@ Toggle sidebar states
 (function($) {
   $.fn.sidebarAccordion = function(speed, api) {
 
-    console.log(speed, $(this));
-
     $(this).find('button.menu_section_label').on('click', function(){
 
       if( $(this).parents('li').hasClass('active') ){
@@ -76,6 +74,32 @@ Toggle music selection tabs
 })(jQuery);
 
 /*************************************
+Choose background Image
+*************************************/
+(function($) {
+  $.fn.backgroundImageSelect = function() {
+
+      var imageContainer = $(this);
+
+      $(imageContainer).find('li').on('click', function(){
+
+        //get selected image ID
+        var imageID = $(this).attr('id');
+        imageID = imageID.replace('image-', '');
+
+        //set value of new ID
+        $('input[name="band[field_option_values][background_image]"]').val(imageID);
+
+        //set current class
+        $(imageContainer).find('li').removeClass('current');
+        $(this).addClass('current');
+
+      });
+
+  };
+})(jQuery);
+
+/*************************************
 Fire everything off
 *************************************/
 jQuery(document).ready(function($) {
@@ -102,9 +126,6 @@ jQuery(document).ready(function($) {
   //toggle music list tabs
   $(".music_selector").musicTabs();
 
-
-
-
   //load up custom select fields
   $('select').customSelect();
 
@@ -126,5 +147,8 @@ jQuery(document).ready(function($) {
   });
   //set initial value on load
   $( "#background_opacity_slider .slider_value" ).text( $( "#background_opacity_slider .sliderbar" ).slider( "value" ) );
+
+  //backgorund image selection
+  $('.background_picker').backgroundImageSelect();
 
 });

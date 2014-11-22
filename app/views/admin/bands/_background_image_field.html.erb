@@ -2,8 +2,7 @@
 <div class="background_picker">
   <ul>
     <% (1..16).each do |img_num| %>
-      <li id="#{img_num}"><img src="<%= image_url("background_images/thumbs/#{"%.2d" % img_num}.jpg") %>" alt="" /></li>
-      <!-- <li class="current"> -->
+      <li id="image-<%= img_num %>" class="<%= img_num == 1 ? 'current' : '' %>"><img src="<%= image_url("background_images/thumbs/#{"%.2d" % img_num}.jpg") %>" alt="" /></li>
     <% end %>
   </ul>
   <input type="hidden" name="band[field_option_values][<%= field_option.identifier %>]" value="<%= @band.field_values.find_by(:field_option => field_option).try(:value) %>" />
