@@ -28,6 +28,7 @@ Sidebar Styles
   background: $gray;
 }
 
+
 /*************************************
 Overall Form Elements
 *************************************/
@@ -56,6 +57,10 @@ div.menu_group{
 p.credits{
   font-size: 12px;
   margin: 0.6em 0;
+}
+
+ul#menu_sections > li:last-child{
+  padding-bottom: 60px;
 }
 
 /*************************************
@@ -137,6 +142,11 @@ button.menu_section_label{
   display: block;
   width: 100%;
   text-align: left;
+  position: relative;
+
+  &:active{
+    top: 1px;
+  }
 
 }
 
@@ -247,7 +257,7 @@ Color Picker
     width: 48px;
     left: auto;
     height: auto;
-
+    cursor: pointer;
   }
 
 }
@@ -268,8 +278,8 @@ Slider
   }
   .slider{
     float: left;
-    width: 192px;
-    padding: 23px 12px;
+    width: 208px;
+    padding: 23px;
   }
 
 }
@@ -392,6 +402,42 @@ Background Photos
   li.current,
   li:hover{
     opacity: 1;
+  }
+
+}
+
+/*************************************
+User Panel
+*************************************/
+#user_panel{
+
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  background: #222;
+  padding: 14px;
+  text-align: center;
+
+  a.button{
+
+    display: inline-block;
+    text-decoration: none;
+    color: #aaa;
+    border: solid 1px #aaa;
+    padding: 6px 10px;
+    position: relative;
+    @include rounded(4px);
+
+    &:hover{
+      color: $white;
+      border-color: $white;
+    }
+    &:active{
+      top: 1px;
+    }
+
   }
 
 }
