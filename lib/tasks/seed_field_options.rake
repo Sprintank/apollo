@@ -16,7 +16,11 @@ namespace :db do
     FieldOption.find_or_create_by(:identifier => 'music_background_color').update_attributes(:name => 'Music Background', :kind => FieldOption::KIND[:color], :order => 0 )
     FieldOption.find_or_create_by(:identifier => 'background_overlay_color').update_attributes(:name => 'Background Overlay Color', :kind => FieldOption::KIND[:color], :order => 2 )
 
-    #background image
+    # font pickers
+    FieldOption.find_or_create_by(:identifier => 'main_font').update_attributes(:name => 'Main Font', :kind => FieldOption::KIND[:font], :order => 0 )
+    FieldOption.find_or_create_by(:identifier => 'text_font').update_attributes(:name => 'Text Font', :kind => FieldOption::KIND[:font], :order => 0 )
+
+    # background image
     FieldOption.find_or_create_by(:identifier => 'background_image').update_attributes(:name => 'Background Image', :kind => FieldOption::KIND[:image], :order => 0 )
 
     print "\n== rake db:seed_field_options complete!   =================\n\n"

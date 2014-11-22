@@ -103,25 +103,13 @@
               <button class="menu_section_label" type="button">Style</button>
               <div class="menu_section">
                 <div class="menu_group">
-
                   <%= render 'color_picker_field', :field_option => @main_color_field_option %>
-
-                  <select class="no_top_border">
-                    <option>Montserrat</option>
-                    <option>Lato</option>
-                    <option>Droid Sans</option>
-                    <option>Need Moar!</option>
-                  </select>
+                  <%= render 'font_field', :field_option => @main_color_font_option %>
                 </div>
 
                 <div class="menu_group">
                   <%= render 'color_picker_field', :field_option => @text_color_field_option %>
-                  <select class="no_top_border">
-                    <option>Montserrat</option>
-                    <option>Lato</option>
-                    <option>Droid Sans</option>
-                    <option>Need Moar!</option>
-                  </select>
+                  <%= render 'font_field', :field_option => @text_color_font_option %>
                 </div>
 
                 <div class="menu_group">
