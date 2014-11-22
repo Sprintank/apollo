@@ -3,13 +3,17 @@
 <head>
   <title>Apollo</title>
   <%= favicon_link_tag "favicon01.png", type: 'image/png' %>
-  <%= stylesheet_link_tag    "admin/admin", media: "all" %>
+  <%= stylesheet_link_tag "admin/admin", media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
 
+<script type="text/javascript">
+  var sound_cloud_client_id = '<%= ENV["SOUNDCLOUD_CLIENT_ID"] %>';
+  var sound_cloud_user_id = '<%= current_user.soundcloud_id %>';
+</script>
 <%= javascript_include_tag "application" %>
 
 </body>

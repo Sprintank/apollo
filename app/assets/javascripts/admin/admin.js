@@ -100,6 +100,21 @@ Choose background Image
 })(jQuery);
 
 /*************************************
+Load Tracks from soundcloud
+*************************************/
+(function($) {
+  $.fn.loadTracks = function() {
+
+      var trackContainer = $(this);
+      $.get( "http://api.soundcloud.com/users/" + sound_cloud_user_id + "/tracks.json?client_id=" + sound_cloud_client_id, function( data ) {
+        //$( ".result" ).html( data );
+        console.log(data);
+
+      });
+  };
+})(jQuery);
+
+/*************************************
 Fire everything off
 *************************************/
 jQuery(document).ready(function($) {
@@ -125,6 +140,7 @@ jQuery(document).ready(function($) {
 
   //toggle music list tabs
   $(".music_selector").musicTabs();
+  $(".music_selector").loadTracks();
 
   //load up custom select fields
   $('select').customSelect();
