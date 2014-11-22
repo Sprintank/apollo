@@ -13,11 +13,11 @@
 			</div>
 			<nav id="header_nav" class="clearfix">
 				<ul id="social_links">
-					<li class="{{network class}}"><a href="{{network url}}" target="_blank"><i class="icon-twitter"></i></a></li>
-					<li class="{{network class}}"><a href="{{network url}}" target="_blank"><i class="icon-soundcloud"></i></a></li>
-					<li class="{{network class}}"><a href="{{network url}}" target="_blank"><i class="icon-facebook"></i></a></li>
-					<li class="{{network class}}"><a href="{{network url}}" target="_blank"><i class="icon-spotify"></i></a></li>
-					<li class="{{network class}}"><a href="{{network url}}" target="_blank"><i class="icon-instagram"></i></a></li>
+					<% @social_field_options.each do |social_field| %>
+						<% if social_field_value = @band.get_field_value_for_option(social_field) %>
+							<li class="<%= social_field.name.downcase %>"><a href="<%= social_field_value%>" target="_blank"><i class="icon-<%= social_field.name.downcase %>"></i></a></li>
+						<% end %>
+					<% end %>
 				</ul>
 			</nav>
 		</div>
