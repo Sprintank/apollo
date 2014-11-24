@@ -9,7 +9,7 @@
 	<header id="main_header" class="site_header">
 		<div class="wrap">
 			<div id="logo_wrap">
-				<a href="/" id="logo"><%= @band.name %></a>
+				<a href="<%= band_url(@band.identifier) %>" id="logo"><%= @band.name %></a>
 			</div>
 			<nav id="header_nav" class="clearfix">
 				<ul id="social_links">

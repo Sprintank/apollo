@@ -201,7 +201,13 @@ jQuery(document).ready(function($) {
 		if( pageHeight < windowHeight ){
 			$('#site_wrap').height(windowHeight);
 		}
-
 	});
+
+	/****************************************************************
+	Do specifc things if page is in preview mode (in_admin)
+	****************************************************************/
+	if (typeof parent.is_admin !== 'undefined') {
+		$("a#logo").attr("href", "#");
+	}
 
 });
