@@ -17,8 +17,9 @@
     a{
       color: <%= @band.get_field_value_for_option(@main_color_field_option) %>;
     }
+    <% image_id = @band.get_field_value_for_option(@background_image_field_option) || 1 %>
     #site_wrap{
-      background-image: url("/assets/background_images/<%= "%.2d" % @band.get_field_value_for_option(@background_image_field_option) %>.jpg");
+      background-image: url("/assets/background_images/<%= "%.2d" % image_id %>.jpg");
     }
     #overlay_color{
       background-color: <%= @band.get_field_value_for_option(@background_overlay_color_field_option) %>;
