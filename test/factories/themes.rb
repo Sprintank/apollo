@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :theme do
-    identifier 'theme01'
+    identifier Faker::Lorem.characters(10)
   end
 
 end

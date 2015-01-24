@@ -22,9 +22,7 @@ class UserTest < ActiveSupport::TestCase
       it "is not able to access a band, without permissions" do
         band = FactoryGirl.create(:band)
         assert_equal false, @user.has_admin?(band)
-      end
-      it "is able to access a band, after admin is granted" do
-        band = FactoryGirl.create(:band)
+
         @user.grant_admin(band)
         assert_equal true, @user.has_admin?(band)
       end
