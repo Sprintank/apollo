@@ -78,26 +78,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="menu_group">
-                  <label class="subsection_label">Music Type</label>
-                  <input type="text" placeholder="">
-                </div>
-                <div class="menu_group">
-                  <label class="subsection_label">Music Title</label>
-                  <input type="text" placeholder="">
-                </div>
-                <div class="menu_group">
-                  <label class="subsection_label">Description</label>
-                  <textarea></textarea>
-                </div>
-                <div class="menu_group">
-                  <label class="subsection_label">Button Text</label>
-                  <input type="text" placeholder="">
-                </div>
-                <div class="menu_group">
-                  <label class="subsection_label">Button URL</label>
-                  <input type="text" placeholder="">
-                </div>
+
+                <% @music_field_options.each do |field_option| %>
+                  <div class="menu_group">
+                    <%= render 'music_field', :field_option => field_option %>
+                  </div>
+                <% end %>
               </div>
             </li>
 

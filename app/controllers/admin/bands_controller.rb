@@ -36,6 +36,7 @@ class Admin::BandsController < Admin::BaseController
     @background_overlay_color_field_option = FieldOption.find_by(:identifier => 'background_overlay_color')
     @background_overlay_opacity_field_option = FieldOption.find_by(:identifier => 'background_overlay_opacity')
     @social_field_options = FieldOption.social.all
+    @music_field_options = FieldOption.music.all
   end
 
 end

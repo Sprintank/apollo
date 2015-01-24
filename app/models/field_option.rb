@@ -7,10 +7,12 @@ class FieldOption < ActiveRecord::Base
            :color => 'color',
            :opactiy => 'opacity',
            :font => 'font',
-           :image => 'image'
+           :image => 'image',
+           :music => 'music'
          }
 
   scope :social, -> { where(kind: FieldOption::KIND[:social]) }
+  scope :music, -> { where(kind: FieldOption::KIND[:music]) }
 
   def default_value(theme)
     default = FieldOptionDefault.where(:theme => theme)
