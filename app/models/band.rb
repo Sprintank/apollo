@@ -16,7 +16,7 @@ class Band < ActiveRecord::Base
 
   def get_field_value_for_option(field_option)
     value = field_values.find_by(:field_option => field_option).try(:value)
-    value = nil if value.nil? or value.empty?
+    value = field_option.default_value if value.nil? or value.empty?
     value
   end
 
