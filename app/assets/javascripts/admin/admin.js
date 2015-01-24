@@ -7,6 +7,16 @@ Toggle sidebar states
 (function($) {
   $.fn.sidebarAccordion = function(speed, api) {
 
+    var menu = $(this);
+
+    var cookie = $.cookie("panelState");
+    var expanded = cookie ? cookie.split("|").getUnique() : [];
+    var cookieExpires = 7;
+
+    $.each( expanded, function(){
+      $('#' + this).children('.menu_section').show();
+    });
+
     $(this).find('button.menu_section_label').on('click', function(){
 
       if( $(this).parents('li').hasClass('active') ){
@@ -24,9 +34,29 @@ Toggle sidebar states
         $(this).parents('li').addClass('active');
       }
 
+      //console.log( $(this).parents('li').attr('id') );
+
+      updateCookie( $(this).parents('li').attr('id') );
+
       //return false;
 
     });
+
+    // Update the Cookie
+    function updateCookie(el){
+      var indx = el;
+      var tmp = expanded.getUnique();
+      if ($(el).is(':hidden')) {
+        // remove element id from the list
+        tmp.splice( tmp.indexOf(el) , 1);
+      } else {
+        // add id of header to expanded list
+        tmp.push(el);
+      }
+      expanded = tmp.getUnique();
+      $.cookie("panelState", expanded.join('|'), { expires: cookieExpires } );
+      console.log(expanded);
+    }
 
   };
 })(jQuery);
@@ -193,11 +223,13 @@ jQuery(document).ready(function($) {
 
 });
 
-/*************************************
-Remember menu states
-*************************************/
-jQuery(document).ready(function($) {
-
-  //TBC
-
-});
+// Return a unique array - used with panelState
+Array.prototype.getUnique = function(sort){
+  var u = {}, a = [], i, l = this.length;
+  for(i = 0; i < l; ++i){
+    if(this[i] in u) { continue; }
+    a.push(this[i]);
+    u[this[i]] = 1;
+  }
+  return (sort) ? a.sort() : a;
+}
