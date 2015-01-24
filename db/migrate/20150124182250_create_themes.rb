@@ -1,0 +1,10 @@
+class CreateThemes < ActiveRecord::Migration
+  def change
+    create_table :themes do |t|
+      t.string :identifier, :null => false
+
+      t.timestamps
+    end
+    add_index :themes, :identifier, :unique => true
+  end
+end

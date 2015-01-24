@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026181924) do
+ActiveRecord::Schema.define(version: 20150124182252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,11 +42,21 @@ ActiveRecord::Schema.define(version: 20141026181924) do
 
   add_index "bands", ["identifier"], name: "index_bands_on_identifier", unique: true, using: :btree
 
+  create_table "field_option_defaults", force: true do |t|
+    t.integer  "theme_id"
+    t.integer  "field_option_id"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "field_option_defaults", ["field_option_id"], name: "index_field_option_defaults_on_field_option_id", using: :btree
+  add_index "field_option_defaults", ["theme_id"], name: "index_field_option_defaults_on_theme_id", using: :btree
+
   create_table "field_options", force: true do |t|
     t.string   "name"
     t.string   "identifier", null: false
     t.string   "kind"
-    t.string   "default"
     t.integer  "order"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -64,6 +74,14 @@ ActiveRecord::Schema.define(version: 20141026181924) do
 
   add_index "field_values", ["band_id"], name: "index_field_values_on_band_id", using: :btree
   add_index "field_values", ["field_option_id"], name: "index_field_values_on_field_option_id", using: :btree
+
+  create_table "themes", force: true do |t|
+    t.string   "identifier", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "themes", ["identifier"], name: "index_themes_on_identifier", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
