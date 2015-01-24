@@ -12,8 +12,8 @@ class FieldOption < ActiveRecord::Base
 
   scope :social, -> { where(kind: FieldOption::KIND[:social]) }
 
-  def default_value(theme)
-    return default unless default.nil? or default.empty?
+  def default_value
+    #return default unless default.nil? or default.empty?
     nil # else
   end
 end
