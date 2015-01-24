@@ -12,6 +12,13 @@
   <meta property="og:url" content="{{url}}" />
   <meta property="og:description" content="{{music description text}}" />
 
+    <!--
+    <%= @band.get_field_value_for_option(@music_background_color_field_option) %>
+    <%= @band.get_field_value_for_option(@text_color_field_option) %>
+    <%= @band.get_field_value_for_option(@text_color_font_option) %>
+    <%= @band.get_field_value_for_option(@main_color_field_option) %>
+    <%= @band.get_field_value_for_option(@main_color_font_option) %>
+      -->
   <style>
 
     a{
@@ -25,6 +32,12 @@
       background-color: <%= @band.get_field_value_for_option(@background_overlay_color_field_option) %>;
       opacity: <%= @band.get_field_value_for_option(@background_overlay_opacity_field_option).to_f / 100 %>;
     }
+
+    /*.music_section.album {  //not working
+
+      background-color: <%= @band.get_field_value_for_option(@music_background_color_field_option) %>;
+
+    }*/
 
   </style>
 

@@ -31,13 +31,17 @@
 					</div>
 					<div class="album_info_wrapper">
 						<div class="album_info">
-							<span class="album_type">{{ album type }}</span>
-							<h3 class="album_title">{{ Album title }}</h3>
+							<span class="album_type"><%= @band.get_field_value_for_option(@music_type_option) %></span>
+							<h3 class="album_title"><%= @band.get_field_value_for_option(@music_title_option) %></h3>
 							<div class="album_description">
-								<p>{{music description text}}</p>
+								<p><%= @band.get_field_value_for_option(@music_desc_option) %></p>
 							</div>
 
-							<a href="#" class="album_button full" target="_blank">{{ Button Text }}</a>
+							<% unless @band.get_field_value_for_option(@music_button_url_option).nil? %>
+								<a href="<%= @band.get_field_value_for_option(@music_button_url_option) %>" class="album_button full" target="_blank">
+									<%= @band.get_field_value_for_option(@music_button_text_option) %>
+							  </a>
+							<% end %>
 
 						</div>
 					</div>
