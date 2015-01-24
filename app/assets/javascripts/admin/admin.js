@@ -140,7 +140,6 @@ Load Tracks from soundcloud
   $.fn.searchTracks = function() {
 
       var trackInput = $(this);
-      var sound_cloud_user_id = "moilanen";
       var searchTerm;
       var tracks;
 
