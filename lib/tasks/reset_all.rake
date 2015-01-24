@@ -12,5 +12,6 @@ namespace :db do
       'db:migrate',
       'db:seed',
       'db:seed_field_options',
+      'db:seed_themes',
     ]
 end

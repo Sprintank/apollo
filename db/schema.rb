@@ -76,7 +76,8 @@ ActiveRecord::Schema.define(version: 20150124182252) do
   add_index "field_values", ["field_option_id"], name: "index_field_values_on_field_option_id", using: :btree
 
   create_table "themes", force: true do |t|
-    t.string   "identifier", null: false
+    t.string   "identifier",                  null: false
+    t.boolean  "is_featured", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
