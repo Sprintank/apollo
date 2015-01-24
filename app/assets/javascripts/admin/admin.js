@@ -157,7 +157,7 @@ Save toggle on form change
     var form = $(this);
     var saveButton = $('#formSubmit');
 
-    form.on('change', function(){
+    form.on('keyup', function(){
       if( saveButton.attr('disabled', true)){
         console.log('changed!');
         saveButton.attr('disabled', false);
