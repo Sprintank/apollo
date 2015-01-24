@@ -19,6 +19,6 @@ class FieldOption < ActiveRecord::Base
                                 .where(:field_option => self).first
 
     return default.value unless default.nil?
-    nil # else
+    nil  # else
   end
 end
