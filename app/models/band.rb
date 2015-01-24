@@ -5,6 +5,9 @@ class Band < ActiveRecord::Base
 
   validates :identifier, uniqueness: { case_sensitive: false }
   before_create :generate_unique_identifier
+  before_create :assign_default_theme
+
+  belongs_to :theme
 
   has_many :field_values
   has_many :field_options, :through => :field_values
@@ -16,7 +19,7 @@ class Band < ActiveRecord::Base
 
   def get_field_value_for_option(field_option)
     value = field_values.find_by(:field_option => field_option).try(:value)
-    value = field_option.default_value if value.nil? or value.empty?
+    value = field_option.default_value(self.theme) if value.nil? or value.empty?
     value
   end
 
@@ -45,6 +48,10 @@ class Band < ActiveRecord::Base
     end
 
     self.identifier = unique_identifier
+  end
+
+  def assign_default_theme
+    self.theme = Theme.get_default
   end
 
   def populate_default_page_styles
