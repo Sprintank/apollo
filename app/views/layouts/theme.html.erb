@@ -28,7 +28,7 @@
 
   </style>
 
-  <%= stylesheet_link_tag  "themes/theme01/main", media: "all" %>
+  <%= stylesheet_link_tag  "themes/#{ @band.theme.identifier }/main", media: "all" %>
   <%= csrf_meta_tags %>
 
 </head>
@@ -42,7 +42,7 @@
 
   <%= yield %>
 
-  <%= javascript_include_tag "themes/theme01/theme" %>
+  <%= javascript_include_tag "themes/#{ @band.theme.identifier }/theme" %>
 
 </body>
 </html>
