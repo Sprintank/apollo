@@ -5,7 +5,7 @@ class BandsController < ApplicationController
 
   def show
     @band = Band.where(identifier: params[:id]).first
-    render :template => "themes/theme01/show"
+    render :template => "themes/#{ @band.theme.identifier }/show"
   end
 
 
