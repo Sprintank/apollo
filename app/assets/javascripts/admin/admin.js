@@ -7,6 +7,20 @@ Toggle sidebar states
 (function($) {
   $.fn.sidebarAccordion = function(speed, api) {
 
+    var menu = $(this);
+
+    var cookie = $.cookie("panelState");
+    var expanded = cookie ? cookie.split("|").getUnique() : [];
+    var cookieExpires = 7;
+
+    $.each( expanded, function(){
+      $('#' + this).children('.menu_section').show(function(){
+        api.reinitialise(); //reinitialize jscrollpane for resized sidebar
+        $('select').trigger('render'); //re-render custom select fields
+      }).addClass('visible');
+      $('#' + this).addClass('active');
+    });
+
     $(this).find('button.menu_section_label').on('click', function(){
 
       if( $(this).parents('li').hasClass('active') ){
@@ -14,19 +28,39 @@ Toggle sidebar states
         $(this).siblings('.menu_section').slideUp( speed, function(){
           api.reinitialise(); //reinitialize jscrollpane for resized sidebar
           $('select').trigger('render'); //re-render custom select fields
-        });
+        }).toggleClass('visible');
         $(this).parents('li').removeClass('active');
       } else {
         $(this).siblings('.menu_section').slideDown( speed, function(){
           api.reinitialise(); //reinitialize jscrollpane for resized sidebar
           $('select').trigger('render'); //re-render custom select fields
-        });
+        }).toggleClass('visible');
         $(this).parents('li').addClass('active');
       }
 
-      //return false;
+      updateCookie( $(this).parents('li') );
+
+      return false;
 
     });
+
+    // Update the Cookie
+    function updateCookie(el){
+
+      var id = el.attr('id');
+      var tmp = expanded.getUnique();
+
+      if ( el.find('.menu_section').hasClass('visible') ) {
+        // add id of header to expanded list
+        tmp.push(id);
+      } else {
+        // remove element id from the list
+        tmp.splice( tmp.indexOf( id ) , 1);
+      }
+
+      expanded = tmp.getUnique();
+      $.cookie("panelState", expanded.join('|'), { expires: cookieExpires } );
+    }
 
   };
 })(jQuery);
@@ -193,11 +227,13 @@ jQuery(document).ready(function($) {
 
 });
 
-/*************************************
-Remember menu states
-*************************************/
-jQuery(document).ready(function($) {
-
-  //TBC
-
-});
+// Return a unique array - used with panelState
+Array.prototype.getUnique = function(sort){
+  var u = {}, a = [], i, l = this.length;
+  for(i = 0; i < l; ++i){
+    if(this[i] in u) { continue; }
+    a.push(this[i]);
+    u[this[i]] = 1;
+  }
+  return (sort) ? a.sort() : a;
+}
