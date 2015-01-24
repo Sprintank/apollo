@@ -150,6 +150,23 @@ button.menu_section_label{
     top: 1px;
   }
 
+  &:before{
+    content: "\e035";
+    font-family: "apollo-fonts";
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+  }
+
+}
+ul#menu_sections li.active button.menu_section_label{
+
+  &:before{
+    content: "\e038";
+  }
+
 }
 
 //big buttons with icons
