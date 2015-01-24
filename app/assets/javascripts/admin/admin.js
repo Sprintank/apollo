@@ -14,7 +14,11 @@ Toggle sidebar states
     var cookieExpires = 7;
 
     $.each( expanded, function(){
-      $('#' + this).children('.menu_section').show();
+      $('#' + this).children('.menu_section').show(function(){
+        api.reinitialise(); //reinitialize jscrollpane for resized sidebar
+        $('select').trigger('render'); //re-render custom select fields
+      }).addClass('visible');
+      $('#' + this).addClass('active');
     });
 
     $(this).find('button.menu_section_label').on('click', function(){
@@ -24,38 +28,38 @@ Toggle sidebar states
         $(this).siblings('.menu_section').slideUp( speed, function(){
           api.reinitialise(); //reinitialize jscrollpane for resized sidebar
           $('select').trigger('render'); //re-render custom select fields
-        });
+        }).toggleClass('visible');
         $(this).parents('li').removeClass('active');
       } else {
         $(this).siblings('.menu_section').slideDown( speed, function(){
           api.reinitialise(); //reinitialize jscrollpane for resized sidebar
           $('select').trigger('render'); //re-render custom select fields
-        });
+        }).toggleClass('visible');
         $(this).parents('li').addClass('active');
       }
 
-      //console.log( $(this).parents('li').attr('id') );
+      updateCookie( $(this).parents('li') );
 
-      updateCookie( $(this).parents('li').attr('id') );
-
-      //return false;
+      return false;
 
     });
 
     // Update the Cookie
     function updateCookie(el){
-      var indx = el;
+
+      var id = el.attr('id');
       var tmp = expanded.getUnique();
-      if ($(el).is(':hidden')) {
-        // remove element id from the list
-        tmp.splice( tmp.indexOf(el) , 1);
-      } else {
+
+      if ( el.find('.menu_section').hasClass('visible') ) {
         // add id of header to expanded list
-        tmp.push(el);
+        tmp.push(id);
+      } else {
+        // remove element id from the list
+        tmp.splice( tmp.indexOf( id ) , 1);
       }
+
       expanded = tmp.getUnique();
       $.cookie("panelState", expanded.join('|'), { expires: cookieExpires } );
-      console.log(expanded);
     }
 
   };
