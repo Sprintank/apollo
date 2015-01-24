@@ -65,8 +65,26 @@ Sidebar
   height: 100%;
 }
 
-#user_panel{
+/*************************************
+Save Panel
+*************************************/
+#save_panel{
+
   width: 340px;
+
+  ul{
+
+  }
+  li{
+
+  }
+  button{
+
+  }
+  button.save{
+    
+  }
+
 }
 
 /*************************************
@@ -89,6 +107,35 @@ a#preview_url{
 
   &:hover{
     text-decoration: underline;
+  }
+
+}
+ul.top_links{
+
+  float: right;
+  padding: 10px;
+
+  li{
+    display: inline-block;
+    margin-left: 10px;
+  }
+  a{
+
+    display: inline-block;
+    border: solid 1px $gray;
+    border-radius: 3px;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    position: relative;
+
+    &:hover{
+      color: $white;
+      border-color: $white;
+    }
+    &:active{
+      top: 1px;
+    }
+
   }
 
 }

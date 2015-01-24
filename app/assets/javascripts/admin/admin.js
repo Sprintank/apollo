@@ -115,6 +115,25 @@ Load Tracks from soundcloud
 })(jQuery);
 
 /*************************************
+Save toggle on form change
+*************************************/
+(function($) {
+  $.fn.saveStateToggle = function() {
+
+    var form = $(this);
+    var saveButton = $('#formSubmit');
+
+    form.on('change', function(){
+      if( saveButton.attr('disabled', true)){
+        console.log('changed!');
+        saveButton.attr('disabled', false);
+      }
+    });
+      
+  };
+})(jQuery);
+
+/*************************************
 Fire everything off
 *************************************/
 jQuery(document).ready(function($) {
@@ -134,6 +153,9 @@ jQuery(document).ready(function($) {
   $(window).resize(function(){
     api.reinitialise();
   });
+
+  // toggle save button state
+  $('#band_admin_form').saveStateToggle();
 
   //toggle menu areas
   $('ul#menu_sections').sidebarAccordion(200, api);

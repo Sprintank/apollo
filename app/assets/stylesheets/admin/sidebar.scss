@@ -541,9 +541,9 @@ Background Photos
 }
 
 /*************************************
-User Panel
+Save Panel
 *************************************/
-#user_panel{
+#save_panel{
 
   display: block;
   position: fixed;
@@ -551,40 +551,40 @@ User Panel
   left: 0;
   height: 60px;
   background: #222;
-  padding: 14px;
   text-align: center;
 
-  a.button{
-
-    display: inline-block;
-    text-decoration: none;
-    color: #aaa;
-    border: solid 1px #aaa;
-    padding: 6px 10px;
+  ul{
+    padding: 10px;
+  }
+  li{
+    display: block;
+  }
+  button{
+    display: block;
+    padding: 0.5em 1.5em;
     position: relative;
-    @include rounded(4px);
-
-    &:hover{
-      color: $white;
-      border-color: $white;
-    }
     &:active{
       top: 1px;
     }
-
   }
+  button.save{
 
-  &:after{
-    display: table;
-    content: '';
-    clear: both;
-  }
+    background: $green;
+    color: $white;
 
-  .left-align{
-    float: left;
-  }
-  .right-align{
-    float: right;
+    &:hover{
+      background: lighten($green, 10%);
+    }
+
+    &[disabled]{
+      cursor: default;
+      color: $black;
+      background: $gray;
+      &:hover{
+        background: $gray;
+      }
+    }
+
   }
 
 }

@@ -135,19 +135,22 @@
 
       </div><!-- end #sidebar_content -->
 
-      <div id="user_panel">
-        <a href="#" class="left-align button">Support</a>
-        <%= link_to "Log Out", destroy_user_session_path, class: "button right-align" %>
+      <div id="save_panel">
+        <ul>
+          <li><button id="formSubmit" class="save" onclick="$( '#band_admin_form' ).submit();" disabled>Save</button></li>
+        </ul>
       </div>
 
     </div><!-- end #sidebar -->
 
     <div id="topbar">
-      <a id="preview_url" href="<%= band_url(@band.identifier) %>" target="_blank"><%= band_url(@band.identifier) %></a>
-      <ul id="save_dialog">
-        <li><button class="cancel">Cancel</button></li>
-        <li><button class="save" onclick="$( '#band_admin_form' ).submit();">Save</button></li>
+
+      <ul class="top_links">
+        <li><a href="#" class="button">Support</a></li>
+        <li><%= link_to "Log Out", destroy_user_session_path, class: "button" %></li>
       </ul>
+
+      <a id="preview_url" href="<%= band_url(@band.identifier) %>" target="_blank"><%= band_url(@band.identifier) %></a>
     </div>
 
     <div id="website_frame">
