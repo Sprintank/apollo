@@ -35,7 +35,7 @@ group :test, :development do
   gem 'pry-rescue'
   gem 'simplecov', :require => false
   gem 'minitest-reporters'
-  gem 'faker', '~> 1.4.2', require: false
+  gem 'faker', '~> 1.4.2'
   gem 'minitest-spec-context'
 end
 

@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :field_option do
-    name "MyString"
-type ""
-default "MyString"
+    name Faker::Lorem.characters(10)
+    identifier Faker::Lorem.characters(10)
   end
 
 end
