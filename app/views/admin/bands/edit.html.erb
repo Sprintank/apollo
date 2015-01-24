@@ -40,43 +40,12 @@
               <button class="menu_section_label" type="button">Music</button>
               <div class="menu_section">
                 <div class="menu_group">
-                  <div class="music_selector">
-                    <ul class="tabs clearfix">
-                      <li><button type="button" data-list-id="tracks">Tracks</button></li>
-                      <li><button type="button" data-list-id="sets">Sets</button></li>
-                    </ul>
-                    <div id="list-tracks" class="music_list" data-list-id="tracks">
-                      <ul>
-                        <!-- loop through results -->
-                        <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
-                        <li class="active"><button><span>Track Name</span><i class="icon-minus"></i></button></li>
-                        <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Track Name</span><i class="icon-plus"></i></button></li>
-                      </ul>
-                    </div>
-                    <div id="list-sets" class="music_list" data-list-id="sets">
-                      <ul>
-                        <!-- loop through results -->
-                        <li><button><span>Set Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Set Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Set Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Set Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Set Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Set Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Set Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Set Name</span><i class="icon-plus"></i></button></li>
-                        <li><button><span>Set Name</span><i class="icon-plus"></i></button></li>
-                      </ul>
-                    </div>
+                  <label class="subsection_label">Soundcloud Track</label>
+                  <div class="input_wrap">
+                    <input id="music_search" type="text" placeholder="Search your tracks...">
+                    <input id="music_embed_id" type="hidden" />
                   </div>
+                  <p class="credits">Track data loaded directly from Soundcloud</p>
                 </div>
 
                 <% @music_field_options.each do |field_option| %>

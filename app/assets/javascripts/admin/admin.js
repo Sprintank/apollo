@@ -137,14 +137,75 @@ Choose background Image
 Load Tracks from soundcloud
 *************************************/
 (function($) {
-  $.fn.loadTracks = function() {
+  $.fn.searchTracks = function() {
 
-      var trackContainer = $(this);
+      var trackInput = $(this);
+      var searchTerm;
+      var tracks;
+
       $.get( "http://api.soundcloud.com/users/" + sound_cloud_user_id + "/tracks.json?client_id=" + sound_cloud_client_id, function( data ) {
-        //$( ".result" ).html( data );
-        console.log(data);
+        tracks = data;
+      }).fail(function(){
+        console.log("Failure - Error connecting to Soundcloud");
+      });
+
+      //Add empty container to input field
+      trackInput.after('<div id="search_results"></div>');
+
+      trackInput.on('keyup', function(){
+        
+        searchTerm = $(this).val().toLowerCase();
+        var matches = [];
+
+        // iterate over tracks and find matching pieces
+        $.each(tracks, function(){
+            
+          var cur = this;
+          var title = cur.title;
+
+          // compare titles
+          if( title.toLowerCase().indexOf(searchTerm) >= 0 ){
+            matches.push(cur);
+          }
+
+        });
+
+        // output it to a list
+        var listOutput = "<ul>";
+        $.each(matches, function(){
+          console.log(this);
+          listOutput += '<li><a href="#" title="Click to Add this track" data-track-id="' + this.id + '">' + this.title + '</a></li>';
+        });
+        listOutput += "</ul>";
+
+        if( searchTerm == '' ){
+          $("#search_results").html('');
+        } else if( matches.length ) {
+          $("#search_results").html(listOutput);
+        } else {
+          $("#search_results").html('<p>No Results...</p>');
+        }
+
+        $("#search_results a").on('click', function(){
+
+          var title = $(this).text();
+          var trackID = $(this).data('track-id');
+
+          trackInput.val( title );
+          $("#music_embed_id").val(trackID);
+
+          $("#search_results").html('');
+
+          return false;
+
+        });
 
       });
+
+      /*trackInput.on('blur', function(){
+        $("#search_results").html('');
+      });*/
+
   };
 })(jQuery);
 
@@ -159,7 +220,6 @@ Save toggle on form change
 
     form.on('keyup change', function(){
       if( saveButton.attr('disabled', true)){
-        console.log('changed!');
         saveButton.attr('disabled', false);
       }
     });
@@ -194,9 +254,8 @@ jQuery(document).ready(function($) {
   //toggle menu areas
   $('ul#menu_sections').sidebarAccordion(200, api);
 
-  //toggle music list tabs
-  $(".music_selector").musicTabs();
-  $(".music_selector").loadTracks();
+  //Search for tunage
+  $("#music_search").searchTracks();
 
   //load up custom select fields
   $('select').customSelect();

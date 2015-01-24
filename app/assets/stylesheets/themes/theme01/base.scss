@@ -26,14 +26,17 @@ h1, h2, h3, h4, h5, h6{
 
 #site_wrap{
 
-	//min-height: 100%;
-	//width: 100%;
 	position: relative;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: scroll; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 	@include box-shadow( 0, 0, 40px, 0.5 );
 
 	#overlay_color{
-		//background-color: #ffffff;
-		//opacity: 0.8;
 		position: absolute;
 		top: 0;
 		left: 0;
