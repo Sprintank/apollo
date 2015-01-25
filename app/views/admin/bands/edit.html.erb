@@ -40,12 +40,7 @@
               <button class="menu_section_label" type="button">Music</button>
               <div class="menu_section">
                 <div class="menu_group">
-                  <label class="subsection_label">Soundcloud Track</label>
-                  <div class="input_wrap">
-                    <input id="music_search" type="text" placeholder="Search your tracks...">
-                    <input id="music_embed_id" type="hidden" />
-                  </div>
-                  <p class="credits">Track data loaded directly from Soundcloud</p>
+                  <%= render 'soundcloud_track_field', :field_option => @soundcloud_track_field_option %>
                 </div>
 
                 <% @music_field_options.each do |field_option| %>

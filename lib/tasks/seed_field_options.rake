@@ -15,8 +15,10 @@ namespace :db do
     FieldOption.find_or_create_by(:identifier => 'text_color').update_attributes(:name => 'Text', :kind => FieldOption::KIND[:color], :order => 0 )
     FieldOption.find_or_create_by(:identifier => 'background_overlay_color').update_attributes(:name => 'Background Overlay Color', :kind => FieldOption::KIND[:color], :order => 2 )
     FieldOption.find_or_create_by(:identifier => 'background_overlay_opacity').update_attributes(:name => 'Background Overlay Opacity', :kind => FieldOption::KIND[:opactiy], :order => 0 )
-    FieldOption.find_or_create_by(:identifier => 'music_background_color').update_attributes(:name => 'Music Background', :kind => FieldOption::KIND[:color], :order => 0 )
 
+    # music general
+    FieldOption.find_or_create_by(:identifier => 'music_background_color').update_attributes(:name => 'Music Background', :kind => FieldOption::KIND[:color], :order => 0 )
+    FieldOption.find_or_create_by(:identifier => 'music_soundcloud_track').update_attributes(:name => 'Soundcloud Track', :kind => FieldOption::KIND[:text], :order => 0 )
 
     # music player options
     FieldOption.find_or_create_by(:identifier => 'music_type').update_attributes(:name => 'Music Type', :kind => FieldOption::KIND[:music], :order => 1 )

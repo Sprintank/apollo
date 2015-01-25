@@ -1,0 +1,8 @@
+<label class="subsection_label"><%= field_option.name %></label>
+<div class="input_wrap">
+  <input id="music_search" type="text" placeholder="Search your tracks...">
+  <input id="music_embed_id" type="hidden"
+                             name="band[field_option_values][<%= field_option.identifier %>]"
+                             value="<%= @band.field_values.find_by(:field_option => field_option).try(:value) %>" />
+</div>
+<p class="credits">Track data loaded directly from Soundcloud</p>
