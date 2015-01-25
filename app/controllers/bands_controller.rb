@@ -24,6 +24,7 @@ class BandsController < ApplicationController
     @background_overlay_opacity_field_option = FieldOption.find_by(:identifier => 'background_overlay_opacity')
     @social_field_options = FieldOption.social.all
 
+    @soundcloud_track_field_option = FieldOption.find_by(:identifier => 'music_soundcloud_track')
     @music_background_color_field_option = FieldOption.find_by(:identifier => 'music_background_color')
     @music_type_option = FieldOption.find_by(:identifier => 'music_type')
     @music_title_option = FieldOption.find_by(:identifier => 'music_title')

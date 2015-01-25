@@ -153,13 +153,13 @@ Load Tracks from soundcloud
       trackInput.after('<div id="search_results"></div>');
 
       trackInput.on('keyup', function(){
-        
+
         searchTerm = $(this).val().toLowerCase();
         var matches = [];
 
         // iterate over tracks and find matching pieces
         $.each(tracks, function(){
-            
+
           var cur = this;
           var title = cur.title;
 
@@ -223,7 +223,7 @@ Save toggle on form change
         saveButton.attr('disabled', false);
       }
     });
-      
+
   };
 })(jQuery);
 

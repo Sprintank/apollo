@@ -9,7 +9,6 @@ class Admin::BandsController < Admin::BaseController
 
   def update
     @band.update_attributes(name: band_params[:name])
-
     band_params[:field_option_values].each do |identifier,value|
       @band.update_field_value(value, FieldOption.find_by(:identifier => identifier))
     end
@@ -32,6 +31,7 @@ class Admin::BandsController < Admin::BaseController
     @text_color_font_option  = FieldOption.find_by(:identifier => 'text_font')
 
     @music_background_color_field_option = FieldOption.find_by(:identifier => 'music_background_color')
+    @soundcloud_track_field_option = FieldOption.find_by(:identifier => 'music_soundcloud_track')
     @background_image_field_option = FieldOption.find_by(:identifier => 'background_image')
     @background_overlay_color_field_option = FieldOption.find_by(:identifier => 'background_overlay_color')
     @background_overlay_opacity_field_option = FieldOption.find_by(:identifier => 'background_overlay_opacity')
