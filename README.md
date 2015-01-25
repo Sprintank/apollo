@@ -9,6 +9,6 @@
 
 ### common dev commands
 
-#### recreate initial db
+#### recreate initial db + seed field options
 
-    $ rake db:drop db:create db:migrate db:seed_field_options
+    $ rake db:reset_all

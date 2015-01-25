@@ -9,7 +9,6 @@ class Admin::BandsController < Admin::BaseController
 
   def update
     @band.update_attributes(name: band_params[:name])
-
     band_params[:field_option_values].each do |identifier,value|
       @band.update_field_value(value, FieldOption.find_by(:identifier => identifier))
     end
