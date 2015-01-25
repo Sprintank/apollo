@@ -27,7 +27,8 @@
 			<div class="wrap">
 				<div class="album clearfix">
 					<div class="soundcloud_embed">
-						{{iframe}}
+						<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<%= @band.get_field_value_for_option(@soundcloud_track_field_option) %>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+
 					</div>
 					<div class="album_info_wrapper">
 						<div class="album_info">
