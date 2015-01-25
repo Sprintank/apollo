@@ -1,9 +1,7 @@
 <div class="music" id="<%= field_option.identifier %>">
   <label class="subsection_label"><%= field_option.name %></label>
   <% if field_option.identifier == 'music_desc' %>
-     <textarea name="band[field_option_values][<%= field_option.identifier %>]">
-        <%= @band.field_values.find_by(:field_option => field_option).try(:value) %>
-      </textarea>
+     <textarea name="band[field_option_values][<%= field_option.identifier %>]"><%= @band.field_values.find_by(:field_option => field_option).try(:value) %></textarea>
   <% else %>
      <input type="text" name="band[field_option_values][<%= field_option.identifier %>]"
             value="<%= @band.field_values.find_by(:field_option => field_option).try(:value) %>" />
