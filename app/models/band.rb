@@ -17,7 +17,7 @@ class Band < ActiveRecord::Base
     field_value.update_attributes(value: value)
   end
 
-  def get_field_value_for_option(field_option)
+  def get_field_value(field_option)
     value = field_values.find_by(:field_option => field_option).try(:value)
     value = field_option.default_value(self.theme) if value.nil? or value.empty?
     value

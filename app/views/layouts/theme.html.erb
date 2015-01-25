@@ -13,29 +13,29 @@
   <meta property="og:description" content="{{music description text}}" />
 
     <!--
-    <%= @band.get_field_value_for_option(@music_background_color_field_option) %>
-    <%= @band.get_field_value_for_option(@text_color_field_option) %>
-    <%= @band.get_field_value_for_option(@text_color_font_option) %>
-    <%= @band.get_field_value_for_option(@main_color_field_option) %>
-    <%= @band.get_field_value_for_option(@main_color_font_option) %>
+    <%= @band.get_field_value(@music_background_color_field_option) %>
+    <%= @band.get_field_value(@text_color_field_option) %>
+    <%= @band.get_field_value(@text_color_font_option) %>
+    <%= @band.get_field_value(@main_color_field_option) %>
+    <%= @band.get_field_value(@main_color_font_option) %>
       -->
   <style>
 
     a{
-      color: <%= @band.get_field_value_for_option(@main_color_field_option) %>;
+      color: <%= @band.get_field_value(@main_color_field_option) %>;
     }
-    <% image_id = @band.get_field_value_for_option(@background_image_field_option) || 1 %>
+    <% image_id = @band.get_field_value(@background_image_field_option) || 1 %>
     #site_wrap{
       background-image: url("/assets/background_images/<%= "%.2d" % image_id %>.jpg");
     }
     #overlay_color{
-      background-color: <%= @band.get_field_value_for_option(@background_overlay_color_field_option) %>;
-      opacity: <%= @band.get_field_value_for_option(@background_overlay_opacity_field_option).to_f / 100 %>;
+      background-color: <%= @band.get_field_value(@background_overlay_color_field_option) %>;
+      opacity: <%= @band.get_field_value(@background_overlay_opacity_field_option).to_f / 100 %>;
     }
 
     /*.music_section.album {  //not working
 
-      background-color: <%= @band.get_field_value_for_option(@music_background_color_field_option) %>;
+      background-color: <%= @band.get_field_value(@music_background_color_field_option) %>;
 
     }*/
 
