@@ -40,7 +40,7 @@ form{
 ul#menu_sections{
 
   li{
-    margin: 0 0 3em 0;
+    margin: 0 0 20px 0;
   }
 
 }
@@ -51,7 +51,7 @@ ul#menu_sections{
 }
 
 div.menu_group{
-  margin: 0 0 2em 0;
+  padding: 0 0 2em 0;
 }
 
 p.credits{
@@ -90,6 +90,10 @@ textarea{
     border-top: none;
   }
 
+}
+
+textarea{
+  height: 200px;
 }
 
 
@@ -135,8 +139,8 @@ Buttons
 button.menu_section_label{
 
   border: none;
-  background: none;
-  padding: 0;
+  background: #3a3a3a;
+  padding: 12px 16px;
   margin: 0;
   font-family: $mainFont;
   font-size: 1.4em;
@@ -145,6 +149,7 @@ button.menu_section_label{
   width: 100%;
   text-align: left;
   position: relative;
+  border-radius: 3px;
 
   &:active{
     top: 1px;
@@ -154,10 +159,11 @@ button.menu_section_label{
     content: "\e035";
     font-family: "apollo-fonts";
     position: absolute;
-    right: 0;
-    top: 4px;
+    right: 16px;
+    top: 50%;
     width: 20px;
     height: 20px;
+    @include transform(translateY(-50%));
   }
 
 }
