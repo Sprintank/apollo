@@ -6,20 +6,25 @@
   <link rel="icon" type="image/png" href="{{Favicon}}" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- Social meta tags -->
-  <meta name="description" content="{{music description text}}" />
-  <meta property="og:title" content="{{website Title}}" />
+  <meta name="description" content="<%= @band.get_field_value(@music_desc_option) %>" />
+  <meta property="og:title" content="<%= @band.name %> | Apollo" />
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="{{url}}" />
-  <meta property="og:description" content="{{music description text}}" />
+  <meta property="og:description" content="<%= @band.get_field_value(@music_desc_option) %>" />
 
     <!--
-    <%= @band.get_field_value(@music_background_color_field_option) %>
-    <%= @band.get_field_value(@text_color_field_option) %>
     <%= @band.get_field_value(@text_color_font_option) %>
-    <%= @band.get_field_value(@main_color_field_option) %>
     <%= @band.get_field_value(@main_color_font_option) %>
       -->
+
+  <%= stylesheet_link_tag  "themes/#{ @band.theme.identifier }/main", media: "all" %>
+  <%= csrf_meta_tags %>
+
   <style>
+
+    html, body{
+      color: <%= @band.get_field_value(@main_color_field_option) %>;
+    }
 
     a{
       color: <%= @band.get_field_value(@main_color_field_option) %>;
@@ -33,16 +38,25 @@
       opacity: <%= @band.get_field_value(@background_overlay_opacity_field_option).to_f / 100 %>;
     }
 
-    /*.music_section.album {  //not working
-
+    .music_section,
+    .music_section .album,
+    #mobile_header,
+    #mobile_menu{
       background-color: <%= @band.get_field_value(@music_background_color_field_option) %>;
+    }
+    .music_section .album .album_info_wrapper .album_info .album_button{
+      color: <%= @band.get_field_value(@music_background_color_field_option) %>;
+      background-color: <%= @band.get_field_value(@text_color_field_option) %>;
+    }
 
-    }*/
+    .music_section .album .album_info_wrapper .album_info .album_description,
+    .music_section .album .album_info_wrapper .album_info .album_title,
+    .music_section .album .album_info_wrapper .album_info .album_type{
+      color: <%= @band.get_field_value(@text_color_field_option) %>;
+    }
+
 
   </style>
-
-  <%= stylesheet_link_tag  "themes/#{ @band.theme.identifier }/main", media: "all" %>
-  <%= csrf_meta_tags %>
 
 </head>
 <body>
