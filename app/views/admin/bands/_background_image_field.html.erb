@@ -2,11 +2,18 @@
 
 <label class="subsection_label"><%= field_option.name %></label>
 <div class="background_picker">
+
   <ul>
     <% (1..16).each do |img_num| %>
-      <li id="image-<%= img_num %>" class="<%= img_num == current_background_id.to_i ? 'current' : '' %>"><img src="<%= image_url("background_images/thumbs/#{"%.2d" % img_num}.jpg") %>" alt="" /></li>
+
+      <label id="image-<%= img_num %>" class="<%= img_num == current_background_id.to_i ? 'current' : '' %>">
+        <input type="radio" name="background-image">
+        <img src="<%= image_url("background_images/thumbs/#{"%.2d" % img_num}.jpg") %>" alt="" />
+      </label>
+
     <% end %>
   </ul>
+  
   <input type="hidden" name="band[field_option_values][<%= field_option.identifier %>]" value="<%= current_background_id %>" />
 </div>
 <p class="credits">All photos courtesy of <a href="https://unsplash.com" target="_blank">Unsplash</a>.</p>
