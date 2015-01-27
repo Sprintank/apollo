@@ -1,17 +1,14 @@
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: apollo-dev
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username: postgres
-  password:
+
+development:
+  <<: *default
+  database: apollo-dev
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: apollo-test
-  pool: 5
-  username: postgres
-  password:
-
-
