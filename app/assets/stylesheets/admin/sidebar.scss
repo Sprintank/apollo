@@ -21,9 +21,6 @@ Sidebar Styles
 .jspDrag{
   //@include rounded(5px);
 }
-.jspTrack{
-  background: darken($black, 10%);
-}
 .jspDrag{
   background: $gray;
 }
@@ -69,7 +66,6 @@ Fields
 input, button, textarea, .customSelect, .slider_value{
   font-family: $mainFont;
   font-size: 1.2rem;
-  color: $white;
   padding: 12px;
   display: block;
   width: 100%;
@@ -139,7 +135,6 @@ Buttons
 button.menu_section_label{
 
   border: none;
-  background: #3a3a3a;
   padding: 12px 16px;
   margin: 0;
   font-family: $mainFont;
@@ -328,7 +323,7 @@ Slider
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default{
   background: $gray;
-  border: solid 2px $black;
+  border: solid 2px;
   outline: none;
   @include rounded(50%);
   &:active{
@@ -450,7 +445,6 @@ Save Panel
   bottom: 0;
   left: 0;
   height: 60px;
-  background: #222;
   text-align: center;
 
   ul{

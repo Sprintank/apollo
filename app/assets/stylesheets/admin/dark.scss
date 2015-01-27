@@ -2,6 +2,10 @@ html.darkUI{
 
   background: $black;
   color: $gray;
+  
+  .jspTrack{
+    background: darken($black, 10%);
+  }
 
   a, button{
     color: $gray;
@@ -10,8 +14,13 @@ html.darkUI{
     }
   }
 
+  input, button, textarea, .customSelect, .slider_value{
+    color: $white;
+  }
+
   button.menu_section_label{
     color: $gray;
+    background: #3a3a3a;
   }
   ul#menu_sections li.active button.menu_section_label,
   ul#menu_sections button.menu_section_label:hover{
@@ -20,6 +29,16 @@ html.darkUI{
 
   ul.top_links a:hover{
     color: $white;
+  }
+
+  .ui-state-default,
+  .ui-widget-content .ui-state-default,
+  .ui-widget-header .ui-state-default{
+    border-color: $black;
+  }
+
+  #save_panel{
+    background: #222;
   }
 
 }

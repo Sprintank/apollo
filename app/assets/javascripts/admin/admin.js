@@ -205,10 +205,104 @@ Load Tracks from soundcloud
   };
 })(jQuery);
 
+
+/*************************************
+Toggle music selection tabs
+*************************************/
+(function($) {
+  $.fn.musicTabs = function() {
+
+    var container = $(this);
+    var tabs = container.find(".tabs > li");
+    var lists = container.find(".music_list");
+
+    //Make sure everything is off by default
+    $(lists).hide().removeClass('active');
+    $(tabs).removeClass('active');
+
+    //Set active state for first item
+    $(tabs[0]).addClass('active');
+    $(lists[0]).show().addClass('active');
+
+    //Do stuff when clicking a tab
+    $(tabs).on('click', function(){
+
+      var curTab = $(this);
+      var listID = $(curTab).find('button').data('list-id');
+
+      //set all tabs to inactive
+      $(tabs).removeClass('active');
+
+      //hide and toggle all lists
+      $(lists).hide().removeClass('active');
+
+      //set new active tab
+      $(curTab).addClass('active');
+
+      //show correct list
+      $(container).find('div[data-list-id="'+listID+'"]').show().addClass('active');
+
+    });
+
+  };
+})(jQuery);
+
+/*************************************
+Choose background Image
+*************************************/
+(function($) {
+  $.fn.backgroundImageSelect = function() {
+
+    var imageContainer = $(this);
+
+    $(imageContainer).find('label').on('click', function(){
+
+      //get selected image ID
+      var imageID = $(this).attr('id');
+      imageID = imageID.replace('image-', '');
+
+      //set value of new ID
+      $('input[name="band[field_option_values][background_image]"]').val(imageID);
+
+    });
+
+  };
+})(jQuery);
+
+/*************************************
+Switch admin theme UI
+*************************************/
+(function($) {
+  $.fn.adminTheme = function() {
+
+    var ul = $(this);
+
+    ul.find('button').on('click', function(){
+
+      console.log('asdf');
+
+      if( $(this).hasClass('dark-theme') ){
+
+        $('html').removeClass('lightUI').addClass('darkUI');
+
+      } else if( $(this).hasClass('light-theme') ) {
+
+        $('html').removeClass('darkUI').addClass('lightUI');
+
+      }
+
+    });
+
+  };
+})(jQuery);
+
 /*************************************
 Fire everything off
 *************************************/
 jQuery(document).ready(function($) {
+
+  //admin theme
+  $('.theme_toggle').adminTheme();
 
   //custom scrollbars on sidebar
   var settings = {
