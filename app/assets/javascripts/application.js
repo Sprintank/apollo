@@ -17,4 +17,5 @@
 //= require jquery.customSelect
 //= require jquery.mousewheel
 //= require jquery.jscrollpane
+//= require jquery.are-you-sure
 //= require admin/admin

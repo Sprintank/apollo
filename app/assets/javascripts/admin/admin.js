@@ -115,7 +115,7 @@ Choose background Image
 
     var imageContainer = $(this);
 
-    $(imageContainer).find('li').on('click', function(){
+    $(imageContainer).find('label').on('click', function(){
 
       //get selected image ID
       var imageID = $(this).attr('id');
@@ -123,10 +123,6 @@ Choose background Image
 
       //set value of new ID
       $('input[name="band[field_option_values][background_image]"]').val(imageID);
-
-      //set current class
-      $(imageContainer).find('li').removeClass('current');
-      $(this).addClass('current');
 
     });
 
@@ -210,24 +206,6 @@ Load Tracks from soundcloud
 })(jQuery);
 
 /*************************************
-Save toggle on form change
-*************************************/
-(function($) {
-  $.fn.saveStateToggle = function() {
-
-    var form = $(this);
-    var saveButton = $('#formSubmit');
-
-    form.on('keyup change', function(){
-      if( saveButton.attr('disabled', true)){
-        saveButton.attr('disabled', false);
-      }
-    });
-
-  };
-})(jQuery);
-
-/*************************************
 Fire everything off
 *************************************/
 jQuery(document).ready(function($) {
@@ -248,8 +226,17 @@ jQuery(document).ready(function($) {
     api.reinitialise();
   });
 
-  // toggle save button state
-  $('#band_admin_form').saveStateToggle();
+  // Dirty forms
+  $('#band_admin_form').areYouSure({
+    change: function() {
+      // Enable save button only if the form is dirty. i.e. something to save.
+      if ($(this).hasClass('dirty')) {
+        $('#formSubmit').removeAttr('disabled');
+      } else {
+        $('#formSubmit').attr('disabled', 'disabled');
+      }
+    }
+  });
 
   //toggle menu areas
   $('ul#menu_sections').sidebarAccordion(200, api);
@@ -276,6 +263,7 @@ jQuery(document).ready(function($) {
     slide: function( event, ui ) {
       $( "#background_opacity_slider .slider_value" ).text( ui.value ); //sets value on slide
       $('input[name="band[field_option_values][background_overlay_opacity]"]').val( ui.value ); //sets value inside hidden input
+      $('#band_admin_form').trigger('checkform.areYouSure'); //trigger dirty form check
     }
   });
   //set initial value on load

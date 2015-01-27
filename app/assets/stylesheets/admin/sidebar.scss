@@ -431,33 +431,26 @@ Background Photos
 
   border: solid 1px $gray;
   width: 100%;
+  overflow: hidden;
 
-  ul{
+
+  label{
     display: block;
-    overflow: hidden;
-  }
-  li{
-    border: solid 1px $gray;
-    float: left;
     width: 25%;
-    margin: 0 !important;
-    padding: 0;
-    opacity: 0.8;
-    cursor: pointer;
-    @include transition(opacity, 0.15s, ease-in-out);
+    float: left;
   }
-  img{
+  label > input{
+    display: none;
+  }
+  label > input + img{
     display: block;
     width: 100%;
     height: auto;
+    cursor: pointer;
+    border: solid 2px $gray;
   }
-
-  li.current{
+  label > input:checked + img{
     border-color: $white;
-  }
-  li.current,
-  li:hover{
-    opacity: 1;
   }
 
 }
