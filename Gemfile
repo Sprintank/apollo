@@ -1,14 +1,15 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.2.0'
 
-gem 'rails', '~> 4.1.8'
+gem 'rails', '~> 4.1.9'
 gem 'pg', '~> 0.17.1'
 
 gem 'cancancan', '~> 1.9.2'
 gem 'devise', '~> 3.4.0'
 
 #front-end
-gem 'sass-rails', '~> 4.0.0'
+
+gem 'sass-rails', '~> 4.0.5'
 gem 'autoprefixer-rails', '~>  2.1.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails', '~> 3.1.0'
